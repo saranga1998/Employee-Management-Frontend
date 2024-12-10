@@ -6,7 +6,7 @@ const initialState = {
     error: ''
 }
 
-const UserReducer = (state = initialState, action) => {
+const EmpReducer = (state = initialState, action) => {
     switch(action.type){
         case FETCH_EMPLOYEE_REQUEST:
             return {
@@ -29,4 +29,4 @@ const UserReducer = (state = initialState, action) => {
     }
 };
 
-export default UserReducer;
+export default EmpReducer;
