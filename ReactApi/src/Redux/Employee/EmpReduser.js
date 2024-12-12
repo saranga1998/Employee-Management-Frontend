@@ -8,18 +8,18 @@ const initialState = {
 
 const EmpReducer = (state = initialState, action) => {
     switch(action.type){
-        case FETCH_EMPLOYEE_REQUEST:
+        case 'FETCH_EMPLOYEE_REQUEST':
             return {
                 ...state,
                 loading: true
             }
-        case FETCH_EMPLOYEE_SUCCESS:
+        case 'FETCH_EMPLOYEE_SUCCESS':
             return {
                 loading: false,
                 employees: action.payload,
                 error: ''
             }
-        case FETCH_EMPLOYEE_FAILURE:
+        case 'FETCH_EMPLOYEE_FAILURE':
             return {
                 loading: false,
                 employees: [],
