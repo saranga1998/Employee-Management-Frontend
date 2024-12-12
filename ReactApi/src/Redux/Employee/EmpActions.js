@@ -22,26 +22,32 @@ export const fetchEmployeeFailure = (error) => {
     };
 };
 
-// export const fetchAll = () => dispatch => {
-//     employeeApi.employee().fetchAll()
-//         .then(response => {
-//             dispatch({
-//                 type : FETCH_EMPLOYEE_SUCCESS
-//                 payload : response.employee
-//             })
-//         })
-// }
 
-export const fetchAll = () =>{
-    return dispatch => {
+// export const fetchAll = () =>{
+//     dispatch(fetchEmployeeRequest());
+//     return dispatch => {
+//         employeeApi.employee().fetchAll()
+//         .then(response =>{
+//             const emp = response.data;
+//             dispatch(fetchEmployeeSuccess(emp));
+//         })
+//         .catch(error => {
+//             const errMsg = error.message;
+//             dispatch(fetchEmployeeFailure(errMsg));
+//         });
+//     };
+// };
+export const fetchAll = () => {
+    return (dispatch) => {
+        dispatch(fetchEmployeeRequest());
         employeeApi.employee().fetchAll()
-        .then(response =>{
-            const emp = response.data;
-            dispatch(fetchEmployeeSuccess(emp));
-        })
-        .catch(error => {
-            const errMsg = error.message;
-            dispatch(fetchEmployeeFailure(errMsg));
-        });
+            .then((response) => {
+                const emp = response.data;
+                dispatch(fetchEmployeeSuccess(emp));
+            })
+            .catch((error) => {
+                const errMsg = error.message;
+                dispatch(fetchEmployeeFailure(errMsg));
+            });
     };
 };
