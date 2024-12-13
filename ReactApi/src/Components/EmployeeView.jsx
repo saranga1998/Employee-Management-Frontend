@@ -9,7 +9,7 @@ function EmployeeView({ EmpData, fetchAll }) {
     }, [fetchAll])
 
     if (!EmpData) {
-        return <h2>Loading...</h2>; // Safe fallback in case `EmpData` is undefined
+        return <h2>Loading...</h2>; 
     }
     //console.log('EmpData', EmpData);
 
