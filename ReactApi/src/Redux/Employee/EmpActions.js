@@ -35,3 +35,18 @@ export const fetchAll = () => {
             });
     };
 };
+
+export const create = (employee) =>{
+    return (dispatch) =>{
+        dispatch(fetchEmployeeRequest());
+        employeeApi.employee().create()
+        .then((response)=>{
+            const emp = response.data;
+            dispatch(fetchEmployeeSuccess(emp));
+        })
+        .catch((error)=>{
+            const errMsg = error.message;
+            dispatch(fetchEmployeeFailure(errMsg));
+        });
+    };
+};
