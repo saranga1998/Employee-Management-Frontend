@@ -1,4 +1,6 @@
-import {FETCH_EMPLOYEE_REQUEST,FETCH_EMPLOYEE_SUCCESS,FETCH_EMPLOYEE_FAILURE} from './EmpTypes';
+import {FETCH_EMPLOYEE_REQUEST,FETCH_EMPLOYEE_SUCCESS,FETCH_EMPLOYEE_FAILURE,
+    ADD_EMPLOYEE_FAILURE,ADD_EMPLOYEE_REQUEST,ADD_EMPLOYEE_SUCCESS
+} from './EmpTypes';
 import employeeApi from '../../actions/employeeApi';
 
 export const fetchEmployeeRequest = () => {
@@ -20,6 +22,25 @@ export const fetchEmployeeFailure = (error) => {
         payload: error
     };
 };
+export const addEmployeeRequest = () => {
+    return {
+        type: ADD_EMPLOYEE_REQUEST
+    };
+};
+
+export const addEmployeeSuccess = (employees) => {
+    return {
+        type: ADD_EMPLOYEE_SUCCESS,
+        payload: employees
+    };
+};
+
+export const addEmployeeFailure = (error) => {
+    return {
+        type: ADD_EMPLOYEE_FAILURE,
+        payload: error
+    };
+};
 
 export const fetchAll = () => {
     return (dispatch) => {
@@ -38,15 +59,15 @@ export const fetchAll = () => {
 
 export const create = (employee) =>{
     return (dispatch) =>{
-        dispatch(fetchEmployeeRequest());
+        dispatch(addEmployeeRequest());
         employeeApi.employee().create()
         .then((response)=>{
             const emp = response.data;
-            dispatch(fetchEmployeeSuccess(emp));
+            dispatch(addEmployeeSuccess(emp));
         })
         .catch((error)=>{
             const errMsg = error.message;
-            dispatch(fetchEmployeeFailure(errMsg));
+            dispatch(addEmployeeFailure(errMsg));
         });
     };
 };
