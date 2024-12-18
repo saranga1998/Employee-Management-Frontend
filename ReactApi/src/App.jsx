@@ -3,6 +3,7 @@ import { Provider } from 'react-redux'
 import store from '../src/Redux/Store'
 import './App.css'
 import ErrorBoundary from './Components/ErrorBoundary'
+import AddEmp from './Components/AddEmp'
 
 function App() {
 
@@ -11,7 +12,8 @@ function App() {
     <Provider store={store}>
       <div>
         <ErrorBoundary>
-          <EmployeeView />
+          {/* <EmployeeView /> */}
+          <AddEmp/>
         </ErrorBoundary>
 
       </div>
