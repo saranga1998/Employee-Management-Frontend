@@ -58,16 +58,22 @@ export const fetchAll = () => {
 };
 
 export const create = (employee) =>{
-    return (dispatch) =>{
-        dispatch(addEmployeeRequest());
-        employeeApi.employee().create()
-        .then((response)=>{
-            const emp = response.data;
-            dispatch(addEmployeeSuccess(emp));
-        })
-        .catch((error)=>{
-            const errMsg = error.message;
+    console.log('Create',employee);
+    return ()=> async (dispatch) =>{
+        try{
+            console.log('Dispatching request'); 
+            dispatch(addEmployeeRequest());
+            console.log('Calling API');
+            const response = await employeeApi.employee().create(employee);
+            console.log('Response received:', response.data);
+            dispatch(addEmployeeSuccess(response.data));
+            console.log('Success dispatched');
+        }
+        catch(error){
+            console.log('Error occurred:', error);
+            const errMsg = error.message?.data?.message||error.message;
             dispatch(addEmployeeFailure(errMsg));
-        });
+        };
     };
 };
+

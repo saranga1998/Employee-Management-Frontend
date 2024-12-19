@@ -14,37 +14,36 @@ const EmpReducer = (state = initialState, action) => {
         case 'FETCH_EMPLOYEE_REQUEST':
             return {
                 ...state,
-                loading: true
+                loading: true,
             }
         case 'FETCH_EMPLOYEE_SUCCESS':
             return {
                 loading: false,
                 employees: action.payload,
-                error: ''
+                error: '',
             }
         case 'FETCH_EMPLOYEE_FAILURE':
             return {
                 loading: false,
                 employees: [],
-                error: action.payload
+                error: action.payload,
             }
         case 'ADD_EMPLOYEE_REQUEST':
             return {
                 ...state,
-                loading: true
+                loading: true,
             }
         case 'ADD_EMPLOYEE_SUCCESS':
             return {
                 ...state,
                 loading: false,
                 employees: [...state.employees,action.payload],
-                error: ''
             }
         case 'ADD_EMPLOYEE_FAILURE':
             return {
+                ...state,
                 loading: false,
-                employees: [],
-                error: action.payload
+                error: action.payload,
             }
 
         default: return state;
