@@ -15,10 +15,12 @@ function AddEmp() {
     };
 
     const handleSubmit = (e) => {
+        //alert(`${employee.EmployeeId}`)
+        console.log('Submitting Employee:', employee);
         e.preventDefault();
         create(employee);
     };
-
+    
 
 
   return (
@@ -26,16 +28,16 @@ function AddEmp() {
       <h2>Add Employee</h2>
       <form onSubmit={handleSubmit}>
         <label>Employee Id</label>
-        <input type='text' name='empId' value={employee.EmployeeId} onChange={handleChange}/>
+        <input type='text' name='EmployeeId' value={employee.EmployeeId} onChange={handleChange}/>
         <label>Employee Name</label>
-        <input type='text' name='empName' value={employee.EmployeeName} onChange={handleChange}/>
+        <input type='text' name='EmployeeName' value={employee.EmployeeName} onChange={handleChange}/>
         <label>Employee Email</label>
-        <input type='text' name='empEmail' value={employee.EmployeeEmail} onChange={handleChange}/>
+        <input type='text' name='EmployeeEmail' value={employee.EmployeeEmail} onChange={handleChange}/>
         <label>Employee Job</label>
-        <input type='text' name='empJob' value={employee.EmployeeJob} onChange={handleChange}/>
+        <input type='text' name='EmployeeJob' value={employee.EmployeeJob} onChange={handleChange}/>
 
-        {/* <button type='submit' disabled={addEmployeeLoading}>{addEmployeeLoading?'Adding..':'Add Employee'}</button> */}
-        <button type='submit'>Add Employee</button>
+        {/* <button type='submit' disabled={addEmployeeRequest}>{addEmployeeRequest?'Adding..':'Add Employee'}</button>  */}
+         <button type='submit'>Add Employee</button> 
       </form>
     </div>
   )
@@ -43,16 +45,18 @@ function AddEmp() {
 
 const mapStateToProps = (state)=>{
     return{
-        addEmployeeLoading : state.loading,
-        addEmployeeFailure : state.error
+        addEmployeeRequest : state.employees.loading,
+        addEmployeeFailure : state.employees.error
         
     };
 };
 
 const mapDispatchToProps = (dispatch) =>{
+    
     return{
-        create : (employee)=> dispatch(create(employee))
+        create : (employee)=> dispatch(create(employee)),
+        
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddEmp)
+export default connect(mapStateToProps, mapDispatchToProps)(AddEmp);
