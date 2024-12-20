@@ -18,7 +18,7 @@ function AddEmp() {
         //alert(`${employee.EmployeeId}`)
         console.log('Submitting Employee:', employee);
         e.preventDefault();
-        create(employee);
+        Add(employee);
     };
     
 
@@ -54,7 +54,7 @@ const mapStateToProps = (state)=>{
 const mapDispatchToProps = (dispatch) =>{
     
     return{
-        create : (employee)=> dispatch(create(employee)),
+        AddEmployee : (employee)=> dispatch(create(employee)),
         
     };
 };

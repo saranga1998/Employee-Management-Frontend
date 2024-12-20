@@ -1,6 +1,6 @@
 import {
-    FETCH_EMPLOYEE_REQUEST, FETCH_EMPLOYEE_SUCCESS, FETCH_EMPLOYEE_FAILURE,
-    ADD_EMPLOYEE_FAILURE, ADD_EMPLOYEE_REQUEST, ADD_EMPLOYEE_SUCCESS
+    EMPLOYEE_REQUEST, FETCH_EMPLOYEE_SUCCESS, EMPLOYEE_FAILURE,
+    ADD_EMPLOYEE_SUCCESS
 } from './EmpTypes';
 
 const initialState = {
@@ -11,40 +11,32 @@ const initialState = {
 
 const EmpReducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'FETCH_EMPLOYEE_REQUEST':
+        case EMPLOYEE_REQUEST:
             return {
                 ...state,
                 loading: true,
             }
-        case 'FETCH_EMPLOYEE_SUCCESS':
-            return {
-                loading: false,
-                employees: action.payload,
-                error: '',
-            }
-        case 'FETCH_EMPLOYEE_FAILURE':
+
+        case EMPLOYEE_FAILURE:
             return {
                 loading: false,
                 employees: [],
                 error: action.payload,
             }
-        case 'ADD_EMPLOYEE_REQUEST':
+
+        case FETCH_EMPLOYEE_SUCCESS:
             return {
-                ...state,
-                loading: true,
+                loading: false,
+                employees: action.payload,
+                error: '',
             }
-        case 'ADD_EMPLOYEE_SUCCESS':
+        case ADD_EMPLOYEE_SUCCESS:
             return {
                 ...state,
                 loading: false,
-                employees: [...state.employees,action.payload],
+                employees: [...state.employees, action.payload],
             }
-        case 'ADD_EMPLOYEE_FAILURE':
-            return {
-                ...state,
-                loading: false,
-                error: action.payload,
-            }
+
 
         default: return state;
     }
