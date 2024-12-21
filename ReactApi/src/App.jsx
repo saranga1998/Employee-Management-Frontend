@@ -12,8 +12,8 @@ function App() {
     <Provider store={store}>
       <div>
         <ErrorBoundary>
-          <EmployeeView />
-          {/* <AddEmp/> */}
+          {/* <EmployeeView /> */}
+          <AddEmp/>
         </ErrorBoundary>
 
       </div>
