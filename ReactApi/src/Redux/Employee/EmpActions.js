@@ -1,13 +1,13 @@
 import {
-    EMPLOYEE_REQUEST,EMPLOYEE_FAILURE,
-    FETCH_EMPLOYEE_SUCCESS, 
-    ADD_EMPLOYEE_SUCCESS
+    FETCH_EMPLOYEE_REQUEST, FETCH_EMPLOYEE_SUCCESS, FETCH_EMPLOYEE_FAILURE,
+    ADD_EMPLOYEE_SUCCESS, ADD_EMPLOYEE_REQUEST, ADD_EMPLOYEE_FAILURE
 } from './EmpTypes';
 import employeeApi from '../../actions/employeeApi';
 
+
 export const fetchEmployeeRequest = () => {
     return {
-        type: EMPLOYEE_REQUEST
+        type: FETCH_EMPLOYEE_REQUEST
     };
 };
 
@@ -20,13 +20,13 @@ export const fetchEmployeeSuccess = (employees) => {
 
 export const fetchEmployeeFailure = (error) => {
     return {
-        type: EMPLOYEE_FAILURE,
+        type: FETCH_EMPLOYEE_FAILURE,
         payload: error
     };
 };
 export const addEmployeeRequest = () => {
     return {
-        type: EMPLOYEE_REQUEST
+        type: ADD_EMPLOYEE_REQUEST
     };
 };
 
@@ -39,7 +39,7 @@ export const addEmployeeSuccess = (employees) => {
 
 export const addEmployeeFailure = (error) => {
     return {
-        type: EMPLOYEE_FAILURE,
+        type: ADD_EMPLOYEE_FAILURE,
         payload: error
     };
 };
@@ -59,44 +59,20 @@ export const fetchAll = () => {
     };
 };
 
-export const create = (employee) =>{
-    console.log('Create',employee);
+export const create = (employee) => {
     return (dispatch) => {
-        console.log('Success dispatched');
-        dispatch(fetchEmployeeRequest());
+        dispatch(addEmployeeRequest());
         employeeApi.employee().AddEmployee(employee)
-        .then((response) => {
-            console.log('Response received:', response.data);
-            const emp = response.data; 
-            dispatch(addEmployeeSuccess(emp)); 
-            console.log('Success dispatched');
-        })
-        .catch((error) => {
-            console.error('Error occurred:', error);
-            const errMsg = error.message;
-            dispatch(addEmployeeFailure(errMsg)); 
-        });
-    };        
+            .then((response) => {
+                const emp = response.data;
+                dispatch(addEmployeeSuccess(emp));
+            })
+            .catch((error) => {
+                const errMsg = error.message;
+                dispatch(addEmployeeFailure(errMsg));
+            });
+    };
 };
 
-// export const create = (employee) =>{
-//     console.log('Create',employee);
-//         return (dispatch) =>{
-//             fetch(()=>{
-//                 console.log('Dispatching request');
-//                 dispatch(addEmployeeRequest());
-//                 employeeApi.employee().create(employee)
 
-//             })
-            
-//             .then((response)=>{
-//                 const emp = response.data;
-//                 dispatch(addEmployeeSuccess(emp));
-//             })
-//             .catch((error)=>{
-//                 const errMsg = error.message;
-//                 dispatch(addEmployeeFailure(errMsg));
-//             });
-//         };
-//     };
 

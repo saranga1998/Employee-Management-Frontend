@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { connect } from 'react-redux'
+import{ useSelector ,useDispatch} from 'react-redux'
 import { addEmployeeFailure, addEmployeeRequest, create } from '../Redux/Employee/EmpActions';
 
 function AddEmp() {
@@ -14,11 +14,14 @@ function AddEmp() {
         setEmployee({...employee,[e.target.name]:e.target.value});
     };
 
+    const addEmployeeRequest = useSelector(state => state.employees.loading);
+    const addEmployeeFailure = useSelector(state => state.employees.error);
+    const dispatch = useDispatch();
+
     const handleSubmit = (e) => {
-        //alert(`${employee.EmployeeId}`)
         console.log('Submitting Employee:', employee);
         e.preventDefault();
-        Add(employee);
+        dispatch(create(employee));
     };
     
 
@@ -43,20 +46,4 @@ function AddEmp() {
   )
 }
 
-const mapStateToProps = (state)=>{
-    return{
-        addEmployeeRequest : state.employees.loading,
-        addEmployeeFailure : state.employees.error
-        
-    };
-};
-
-const mapDispatchToProps = (dispatch) =>{
-    
-    return{
-        AddEmployee : (employee)=> dispatch(create(employee)),
-        
-    };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(AddEmp);
+export default AddEmp;
