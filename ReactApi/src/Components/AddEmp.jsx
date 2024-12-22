@@ -35,7 +35,7 @@ function AddEmp() {
         <label>Employee Name</label>
         <input type='text' name='EmployeeName' value={employee.EmployeeName} onChange={handleChange}/>
         <label>Employee Email</label>
-        <input type='text' name='EmployeeEmail' value={employee.EmployeeEmail} onChange={handleChange}/>
+        <input type='email' name='EmployeeEmail' value={employee.EmployeeEmail} onChange={handleChange}/>
         <label>Employee Job</label>
         <input type='text' name='EmployeeJob' value={employee.EmployeeJob} onChange={handleChange}/>
 
