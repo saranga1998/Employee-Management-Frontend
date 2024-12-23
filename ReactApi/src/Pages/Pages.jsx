@@ -6,6 +6,7 @@ import ErrorBoundary from '../Components/ErrorBoundary'
 import Home from '../Pages/Home'
 import AddEmp from '../Components/AddEmp';
 import EmployeeView from '../Components/EmployeeView';
+import Employee from './Employee';
 function Pages() {
     return (
         <>

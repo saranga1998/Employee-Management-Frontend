@@ -9,23 +9,42 @@ function EmployeeView({ EmpData, fetchAll }) {
     }, [fetchAll])
 
     if (!EmpData) {
-        return <h2>Loading...</h2>; 
+        return <h2>Loading...</h2>;
     }
     //console.log('EmpData', EmpData);
 
     return EmpData.loading ? (<h2>loading...</h2>) :
         EmpData.error ? (<h2>{EmpData.error}</h2>) :
-        EmpData.employees.length === 0 ? (
-            <h2>No Employees Found</h2>
-        ) :
-            (
-                <div>
-                    <h2>Employees</h2>
-                    {EmpData.employees.map(emp => (
-                        <p key={emp.employeeId}>{emp.employeeName}--{emp.employeeEmail}--{emp.employeeJob}</p>
-                    ))}
-                </div>
-            );
+            EmpData.employees.length === 0 ? (
+                <h2>No Employees Found</h2>
+            ) :
+                (
+
+                    <div>
+                        <table>
+                            <tr>
+                                <th>Employee Id</th>
+                                <th>Employee Name</th>
+                                <th>Email</th>
+                                <th>Job</th>
+                                <th>Action</th>
+                            </tr>
+
+                            {EmpData.employees.map(emp => (
+                                <tr key={emp.employeeId}>
+                                    <td>{emp.employeeId}</td>
+                                    <td>{emp.employeeName}</td>
+                                    <td>{emp.employeeEmail}</td>
+                                    <td>{emp.employeeJob}</td>
+                                    <td><button>Delete</button></td>
+                                </tr>
+                                
+                            ))}
+
+                        </table>
+                        
+                    </div>
+                );
 
 }
 
