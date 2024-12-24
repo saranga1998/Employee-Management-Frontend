@@ -13,6 +13,10 @@ function EmployeeView({ EmpData, fetchAll }) {
     }
     //console.log('EmpData', EmpData);
 
+    const handleDelete = (id) =>{
+        console.log('Delete button clicked',id)
+    }
+
     return EmpData.loading ? (<h2>loading...</h2>) :
         EmpData.error ? (<h2>{EmpData.error}</h2>) :
             EmpData.employees.length === 0 ? (
@@ -36,7 +40,7 @@ function EmployeeView({ EmpData, fetchAll }) {
                                     <td>{emp.employeeName}</td>
                                     <td>{emp.employeeEmail}</td>
                                     <td>{emp.employeeJob}</td>
-                                    <td><button>Delete</button></td>
+                                    <td><button onClick={handleDelete(emp.employeeId)}>Delete</button></td>
                                 </tr>
                                 
                             ))}
