@@ -1,22 +1,26 @@
 import React, { useEffect } from 'react'
-import { connect } from 'react-redux'
-import { fetchAll } from '../Redux/Employee/EmpActions'
+import{ useSelector ,useDispatch} from 'react-redux'
+import { fetchAll,deleteById } from '../Redux/Employee/EmpActions'
 
 
-function EmployeeView({ EmpData, fetchAll }) {
+function EmployeeView() {
     useEffect(() => {
-        fetchAll()
+        dispatch(fetchAll())
     }, [fetchAll])
 
+    
+    //console.log('EmpData', EmpData);
+    const EmpData = useSelector(state=> state.employees)
+    const dispatch = useDispatch()
+
+
+    // const handleDelete = (id) =>{
+    //     console.log('Delete button clicked',id)
+    //     dispatch(deleteById(id))
+    // }
     if (!EmpData) {
         return <h2>Loading...</h2>;
     }
-    //console.log('EmpData', EmpData);
-
-    const handleDelete = (id) =>{
-        console.log('Delete button clicked',id)
-    }
-
     return EmpData.loading ? (<h2>loading...</h2>) :
         EmpData.error ? (<h2>{EmpData.error}</h2>) :
             EmpData.employees.length === 0 ? (
@@ -40,7 +44,7 @@ function EmployeeView({ EmpData, fetchAll }) {
                                     <td>{emp.employeeName}</td>
                                     <td>{emp.employeeEmail}</td>
                                     <td>{emp.employeeJob}</td>
-                                    <td><button onClick={handleDelete(emp.employeeId)}>Delete</button></td>
+                                    <td><button>Delete</button></td>
                                 </tr>
                                 
                             ))}
@@ -52,16 +56,5 @@ function EmployeeView({ EmpData, fetchAll }) {
 
 }
 
-const mapStateToProps = (state) => {
-    return {
-        EmpData: state.employees,
-    }
-};
 
-const mapDispatchToProps = dispatch => {
-    return {
-        fetchAll: () => dispatch(fetchAll())
-    }
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(EmployeeView)
+export default EmployeeView
