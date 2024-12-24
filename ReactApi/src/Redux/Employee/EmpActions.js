@@ -98,7 +98,7 @@ export const create = (employee) => {
 export const deleteById = (id) =>{
     return (dispatch) => {
         dispatch(deleteEmployeeRequest());
-        employeeApi.employee().deleteEmployee(id)
+        employeeApi.employee().DeleteEmployee(id)
         .then((response) => {
             const emp = response.data;
             dispatch(deleteEmployeeSuccess(emp));
