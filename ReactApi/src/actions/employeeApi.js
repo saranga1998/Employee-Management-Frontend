@@ -10,7 +10,8 @@ export default{
                 headers:{
                     'Content-Type': 'application/json',
                 },
-            })
+            }),
+            DeleteEmployee : id => axios.post(url+'DeleteEmployee',id)
         }
     }
 }
