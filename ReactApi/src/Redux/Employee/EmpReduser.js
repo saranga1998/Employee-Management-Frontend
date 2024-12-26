@@ -58,7 +58,7 @@ const EmpReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading: false,
-                employees: [...state.employees, action.payload],
+                employees: state.employees.filter(emp => emp.employeeId !== action.payload),
             }
         case 'DELETE_EMPLOYEE_FAILURE':
             return {

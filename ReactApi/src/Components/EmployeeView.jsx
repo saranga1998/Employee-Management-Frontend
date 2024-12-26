@@ -1,23 +1,22 @@
 import React, { useEffect } from 'react'
-import{ useSelector ,useDispatch} from 'react-redux'
-import { fetchAll,deleteById } from '../Redux/Employee/EmpActions'
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchAll, deleteById } from '../Redux/Employee/EmpActions'
 
 
 function EmployeeView() {
-    useEffect(() => {
-        dispatch(fetchAll())
-    }, [fetchAll])
-
     
-    //console.log('EmpData', EmpData);
-    const EmpData = useSelector(state=> state.employees)
+    const EmpData = useSelector(state => state.employees)
     const dispatch = useDispatch()
 
+    useEffect(() => {
+        dispatch(fetchAll())
+    }, [dispatch])
 
-    // const handleDelete = (id) =>{
-    //     console.log('Delete button clicked',id)
-    //     dispatch(deleteById(id))
-    // }
+    const handleDelete = (id) =>{
+        console.log('Delete button clicked',id)
+        dispatch(deleteById(id))
+        dispatch(fetchAll())
+    }
     if (!EmpData) {
         return <h2>Loading...</h2>;
     }
@@ -30,27 +29,28 @@ function EmployeeView() {
 
                     <div>
                         <table>
-                            <tr>
-                                <th>Employee Id</th>
-                                <th>Employee Name</th>
-                                <th>Email</th>
-                                <th>Job</th>
-                                <th>Action</th>
-                            </tr>
-
-                            {EmpData.employees.map(emp => (
-                                <tr key={emp.employeeId}>
-                                    <td>{emp.employeeId}</td>
-                                    <td>{emp.employeeName}</td>
-                                    <td>{emp.employeeEmail}</td>
-                                    <td>{emp.employeeJob}</td>
-                                    <td><button>Delete</button></td>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Employee Id</th>
+                                    <th scope="col">Employee Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Job</th>
+                                    <th scope="col">Action</th>
                                 </tr>
-                                
-                            ))}
-
+                            </thead>
+                            <tbody>
+                                {EmpData.employees.map(emp => (
+                                    <tr key={emp.employeeId}>
+                                        <td>{emp.employeeId}</td>
+                                        <td>{emp.employeeName}</td>
+                                        <td>{emp.employeeEmail}</td>
+                                        <td>{emp.employeeJob}</td>
+                                        <td><button onClick={()=>handleDelete(emp.employeeId)}>Delete</button></td>
+                                    </tr>
+                                ))}
+                            </tbody>
                         </table>
-                        
+
                     </div>
                 );
 
