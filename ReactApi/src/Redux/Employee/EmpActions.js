@@ -102,6 +102,7 @@ export const deleteById = (id) =>{
         .then((response) => {
             const emp = response.data;
             dispatch(deleteEmployeeSuccess(emp));
+            //dispatch(fetchAll());
             })
             .catch((error) => {
                 const errMsg = error.message;

@@ -11,7 +11,7 @@ export default{
                     'Content-Type': 'application/json',
                 },
             }),
-            DeleteEmployee : id => axios.post(url+'DeleteEmployee',id)
+            DeleteEmployee : (id) => axios.delete(`${url}DeleteEmployee/${id}`),
         }
     }
 }
