@@ -51,10 +51,10 @@ export const deleteEmployeeRequest = () => {
     };
 };
 
-export const deleteEmployeeSuccess = (employees) => {
+export const deleteEmployeeSuccess = (id) => {
     return {
         type: Delete_EMPLOYEE_SUCCESS,
-        payload: employees
+        payload: id
     };
 };
 
@@ -101,8 +101,8 @@ export const deleteById = (id) =>{
         employeeApi.employee().DeleteEmployee(id)
         .then((response) => {
             const emp = response.data;
-            dispatch(deleteEmployeeSuccess(emp));
-            //dispatch(fetchAll());
+            dispatch(deleteEmployeeSuccess(id));
+            dispatch(fetchAll());
             })
             .catch((error) => {
                 const errMsg = error.message;
