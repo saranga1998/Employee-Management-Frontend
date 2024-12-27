@@ -4,7 +4,7 @@ import { fetchAll, deleteById } from '../Redux/Employee/EmpActions'
 
 
 function EmployeeView() {
-    
+
     const EmpData = useSelector(state => state.employees)
     const dispatch = useDispatch()
 
@@ -12,10 +12,10 @@ function EmployeeView() {
         dispatch(fetchAll())
     }, [dispatch])
 
-    const handleDelete = (id) =>{
-        console.log('Delete button clicked',id)
+    const handleDelete = (id) => {
         dispatch(deleteById(id))
-        dispatch(fetchAll())
+            
+        //dispatch(fetchAll())
     }
     if (!EmpData) {
         return <h2>Loading...</h2>;
@@ -45,7 +45,7 @@ function EmployeeView() {
                                         <td>{emp.employeeName}</td>
                                         <td>{emp.employeeEmail}</td>
                                         <td>{emp.employeeJob}</td>
-                                        <td><button onClick={()=>handleDelete(emp.employeeId)}>Delete</button></td>
+                                        <td><button onClick={() => handleDelete(emp.employeeId)}>Delete</button></td>
                                     </tr>
                                 ))}
                             </tbody>
