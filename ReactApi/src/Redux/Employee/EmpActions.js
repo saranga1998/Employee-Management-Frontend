@@ -1,7 +1,7 @@
 import {
     FETCH_EMPLOYEE_REQUEST, FETCH_EMPLOYEE_SUCCESS, FETCH_EMPLOYEE_FAILURE,
     ADD_EMPLOYEE_SUCCESS, ADD_EMPLOYEE_REQUEST, ADD_EMPLOYEE_FAILURE,
-    Delete_EMPLOYEE_FAILURE,Delete_EMPLOYEE_REQUEST,Delete_EMPLOYEE_SUCCESS
+    Delete_EMPLOYEE_FAILURE, Delete_EMPLOYEE_REQUEST, Delete_EMPLOYEE_SUCCESS
 } from './EmpTypes';
 import employeeApi from '../../actions/employeeApi';
 
@@ -95,19 +95,34 @@ export const create = (employee) => {
     };
 };
 
-export const deleteById = (id) =>{
+export const deleteById = (id) => {
     return (dispatch) => {
         dispatch(deleteEmployeeRequest());
         employeeApi.employee().DeleteEmployee(id)
-        .then((response) => {
-            const emp = response.data;
-            dispatch(deleteEmployeeSuccess(id));
-            dispatch(fetchAll());
+            .then((response) => {
+                const emp = response.data;
+                dispatch(deleteEmployeeSuccess(id));
+                dispatch(fetchAll());
             })
             .catch((error) => {
                 const errMsg = error.message;
                 dispatch(deleteEmployeeFailure(errMsg));
-                });
+            });
+    }
+}
+
+export const FetchById = (id) => {
+    return (dispatch) => {
+        dispatch(fetchEmployeeRequest());
+        employeeApi.employee().EditEmployee(id)
+            .then((response) => {
+                const emp = response.data
+                dispatch(fetchEmployeeSuccess(emp));
+            })
+            .catch((error) => {
+                const err = error.message;
+                dispatch(fetchEmployeeFailure(err));
+            });
     }
 }
 

@@ -12,6 +12,8 @@ export default{
                 },
             }),
             DeleteEmployee : (id) => axios.delete(`${url}DeleteEmployee/${id}`),
+            FetchByID:(id)=>axios.get(`${url}Edit/${id}`),
+            EditEmployee:(id,edit) => axios.put(`${url}Edit/${id}`,edit),
         }
     }
 }
