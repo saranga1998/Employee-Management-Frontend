@@ -126,5 +126,20 @@ export const FetchById = (id) => {
     }
 }
 
+export const UpdateById = (id,edit) =>
+    {
+        return (dispatch) => {
+            dispatch(addEmployeeRequest());
+            employeeApi.employee().EditEmployee(id,edit)
+            .then((response) => {
+                const emp = response.data;
+                dispatch(addEmployeeSuccess(emp));
+            })
+            .catch((error) => {
+                const errMsg = error.message;
+                dispatch(addEmployeeFailure(errMsg));
+            });
+    };
+};
 
 
