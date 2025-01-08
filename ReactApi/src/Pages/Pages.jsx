@@ -7,6 +7,7 @@ import Home from '../Pages/Home'
 import AddEmp from '../Components/AddEmp';
 import EmployeeView from '../Components/EmployeeView';
 import Employee from './Employee';
+import EmployeeEdit from '../Components/EmployeeEdit'
 function Pages() {
     return (
         <>
@@ -27,6 +28,7 @@ function Pages() {
                                 <Route path="/" element={<Home />} />
                                 <Route path="/add-employee" element={<AddEmp />} />
                                 <Route path="/employees" element={<EmployeeView />} />
+                                <Route path="/employees/edit/:id" element={<EmployeeEdit />} />
                             </Routes>
                         </div>
                     </Router>
