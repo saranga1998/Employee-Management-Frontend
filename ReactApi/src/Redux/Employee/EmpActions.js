@@ -114,7 +114,7 @@ export const deleteById = (id) => {
 export const FetchById = (id) => {
     return (dispatch) => {
         dispatch(fetchEmployeeRequest());
-        employeeApi.employee().EditEmployee(id)
+        employeeApi.employee().FetchByID(id)
             .then((response) => {
                 const emp = response.data
                 dispatch(fetchEmployeeSuccess(emp));
