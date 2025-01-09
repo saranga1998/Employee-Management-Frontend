@@ -1,7 +1,7 @@
 import {
     FETCH_EMPLOYEE_REQUEST, FETCH_EMPLOYEE_SUCCESS, FETCH_EMPLOYEE_FAILURE,
     ADD_EMPLOYEE_SUCCESS, ADD_EMPLOYEE_REQUEST, ADD_EMPLOYEE_FAILURE,
-    Delete_EMPLOYEE_FAILURE, Delete_EMPLOYEE_REQUEST, Delete_EMPLOYEE_SUCCESS,UPDATE_EMPLOYEE_SUCCESS
+    Delete_EMPLOYEE_FAILURE, Delete_EMPLOYEE_REQUEST, Delete_EMPLOYEE_SUCCESS, UPDATE_EMPLOYEE_SUCCESS
 } from './EmpTypes';
 
 const initialState = {
@@ -59,7 +59,7 @@ const EmpReducer = (state = initialState, action) => {
                 ...state,
                 loading: false,
                 employees: state.employees.filter(emp => emp.employeeId !== action.payload),
-                
+
             }
         case 'DELETE_EMPLOYEE_FAILURE':
             return {
@@ -67,14 +67,14 @@ const EmpReducer = (state = initialState, action) => {
                 employees: [],
                 error: action.payload,
             }
-        
-            case 'UPDATE_EMPLOYEE_SUCCESS':
-                return {
-                    ...state,
-                    loading:false,
-                    employees: [...state.employees, action.payload]
-                    //employees: state.employees.map((emp) => emp.employeeId === action.payload.employeeId ?
-                }
+
+        case 'UPDATE_EMPLOYEE_SUCCESS':
+            return {
+                ...state,
+                loading: false,
+                //employees: [...state.employees, action.payload]
+                employees: state.employees.map((emp) => emp.employeeId === action.payload.employeeId ? action.payload : emp)
+            }
         default: return state;
     }
 };

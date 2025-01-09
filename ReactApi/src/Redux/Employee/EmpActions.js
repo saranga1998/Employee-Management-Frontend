@@ -134,6 +134,7 @@ export const UpdateById = (id,edit) =>
             .then((response) => {
                 const emp = response.data;
                 dispatch(addEmployeeSuccess(emp));
+                dispatch(fetchAll());
             })
             .catch((error) => {
                 const errMsg = error.message;

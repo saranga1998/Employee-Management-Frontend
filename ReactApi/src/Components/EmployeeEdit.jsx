@@ -9,15 +9,9 @@ const EmployeeEdit = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    
-    const empData =  useSelector(state => state.employees)
-   
-
-    
+    const empData =  useSelector(state => state.employees) 
     const {loading,error,employees} = empData;
-    console.log("Employee ",employees);
-    
-    
+       
     const [updateEmployee, setEmployee] = useState({
         employeeId: "",
         employeeName: "",
@@ -26,7 +20,6 @@ const EmployeeEdit = () => {
     });
 
     const Editemployee = employees.find((emp) => emp.employeeId.trim() === id.trim());    
-    console.log("Edit Employee ",Editemployee);
 
     useEffect(() => {
         if (Editemployee) {
@@ -54,7 +47,7 @@ const EmployeeEdit = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(UpdateById(id, updateEmployee));
-        navigate('/employee');
+        navigate('/employees');
     };
 
     if (loading) return <h2>Loading...</h2>;
