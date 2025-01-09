@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { FetchById, UpdateById } from '../Redux/Employee/EmpActions'
+import { FetchById, UpdateById } from '../Redux/Employee/EmpActions';
 import { useNavigate, useParams } from "react-router-dom";
 
 const EmployeeEdit = () => {
 
-    const { id } = useParams();
+    const { id } = useParams(); 
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const empData = useSelector((state) => state.employees);
     
-    const { loading, employee=[], error } = empData;
-     
+    const empData =  useSelector(state => state.employees)
+   
+
+    
+    const {loading,error,employees} = empData;
+    console.log("Employee ",employees);
+    
     
     const [updateEmployee, setEmployee] = useState({
         employeeId: "",
@@ -21,10 +25,10 @@ const EmployeeEdit = () => {
         employeeJob: "",
     });
 
-    const Editemployee = employee.find((emp) => emp.employeeId.trim() === id.trim());
-    
+    const Editemployee = employees.find((emp) => emp.employeeId.trim() === id.trim());    
+    console.log("Edit Employee ",Editemployee);
+
     useEffect(() => {
-                
         if (Editemployee) {
             
             setEmployee({
@@ -36,12 +40,15 @@ const EmployeeEdit = () => {
         } else {
             
             dispatch(FetchById(id));
+            
         }
-        
-    }, [dispatch, id,Editemployee]);
-    
+    }, [dispatch, id,employees]);
+
     const handleChange = (e) => {
-        setEmployee({ ...updateEmployee, [e.target.name]: e.target.value });
+        setEmployee({
+            ...updateEmployee,
+            [e.target.name]: e.target.value,
+        });
     };
 
     const handleSubmit = (e) => {
@@ -49,26 +56,46 @@ const EmployeeEdit = () => {
         dispatch(UpdateById(id, updateEmployee));
         navigate('/employee');
     };
+
     if (loading) return <h2>Loading...</h2>;
     if (error) return <h2>{error}</h2>;
+
     return (
         <div>
             <h2>Update Employee</h2>
             <form onSubmit={handleSubmit}>
                 <label>Employee Id</label>
-                <input type='text' name='employeeId' value={updateEmployee.employeeId} disabled />
+                <input
+                    type="text"
+                    name="employeeId"
+                    value={updateEmployee.employeeId}
+                    disabled
+                />
                 <label>Employee Name</label>
-                <input type='text' name='employeeName' value={updateEmployee.employeeName} onChange={handleChange} />
+                <input
+                    type="text"
+                    name="employeeName"
+                    value={updateEmployee.employeeName}
+                    onChange={handleChange}
+                />
                 <label>Employee Email</label>
-                <input type='email' name='employeeEmail' value={updateEmployee.employeeEmail} onChange={handleChange} />
+                <input
+                    type="email"
+                    name="employeeEmail"
+                    value={updateEmployee.employeeEmail}
+                    onChange={handleChange}
+                />
                 <label>Employee Job</label>
-                <input type='text' name='employeeJob' value={updateEmployee.employeeJob} onChange={handleChange} />
-
-                <button type='submit'>Update Employee</button>
+                <input
+                    type="text"
+                    name="employeeJob"
+                    value={updateEmployee.employeeJob}
+                    onChange={handleChange}
+                />
+                <button type="submit">Update Employee</button>
             </form>
         </div>
-    )
-
-}
+    );
+};
 
 export default EmployeeEdit;
