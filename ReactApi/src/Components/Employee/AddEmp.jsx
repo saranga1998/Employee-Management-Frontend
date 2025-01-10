@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import{ useSelector ,useDispatch} from 'react-redux'
-import { addEmployeeFailure, addEmployeeRequest, create } from '../Redux/Employee/EmpActions';
+import { addEmployeeFailure, addEmployeeRequest, create } from '../../Redux/Employee/EmpActions';
 
 function AddEmp() {
     const [employee,setEmployee] = useState({
