@@ -74,7 +74,7 @@ export const updateHolidaySuccess = (holiday) => {
 export const fetchAll = () => {
     return (dispatch) => {
         dispatch(fetchHolidayRequest());
-        holidayApi.holiday().fetchAll()
+        holidayApi.holiday().fetchDays()
             .then((response) => {
                 const days = response.data;
                 dispatch(fetchHolidaySuccess(days));
@@ -89,7 +89,7 @@ export const fetchAll = () => {
 export const create = (holiday) => {
     return (dispatch) => {
         dispatch(addHolidayRequest());
-        holidayApi.holiday().AddHoliday(holiday)
+        holidayApi.holiday().Adddate(holiday)
             .then((response) => {
                 const day = response.data;
                 dispatch(addHolidaySuccess(day));

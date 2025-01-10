@@ -5,8 +5,8 @@ const baseUrl = "http://localhost:5278/";
 export default {
     holiday(url = baseUrl + 'Holiday/') {
         return {
-            fetchAll: () => axios.get(url + 'HolidayDetails'),
-            AddHoliday: newDay => axios.post(url + 'AddHoliday', newDay, {
+            fetchDays: () => axios.get(url + 'HolidayDetails'),
+            Adddate: newDay => axios.post(url + 'AddHoliday', newDay, {
                 headers: {
                     'Content-Type': 'application/json',
                 },

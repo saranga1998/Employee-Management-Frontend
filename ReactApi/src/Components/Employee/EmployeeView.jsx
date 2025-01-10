@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchAll, deleteById } from '../Redux/Employee/EmpActions'
+import { fetchAll, deleteById } from '../../Redux/Employee/EmpActions'
 import { useNavigate } from 'react-router-dom'
 
 
@@ -8,15 +8,15 @@ function EmployeeView() {
 
     const EmpData = useSelector(state => state.employees)
     const dispatch = useDispatch()
-    const navigate = useNavigate(); 
-    
+    const navigate = useNavigate();
+
     useEffect(() => {
         dispatch(fetchAll())
     }, [dispatch])
 
     const handleDelete = (id) => {
         dispatch(deleteById(id))
-            
+
         //dispatch(fetchAll())
     }
     if (!EmpData) {
@@ -30,6 +30,9 @@ function EmployeeView() {
                 (
 
                     <div>
+                        <div>
+                            <button onClick={() => navigate('/add-employee')}>Add Employee</button>
+                        </div>
                         <table>
                             <thead>
                                 <tr>
@@ -48,7 +51,7 @@ function EmployeeView() {
                                         <td>{emp.employeeEmail}</td>
                                         <td>{emp.employeeJob}</td>
                                         <td><button onClick={() => handleDelete(emp.employeeId)}>Delete</button></td>
-                                        <td><button onClick={()=> navigate(`/employees/edit/${emp.employeeId}`)}>Edit</button></td>
+                                        <td><button onClick={() => navigate(`/employees/edit/${emp.employeeId}`)}>Edit</button></td>
                                     </tr>
                                 ))}
                             </tbody>
