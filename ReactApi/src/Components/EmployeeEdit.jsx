@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { FetchById, UpdateById } from '../Redux/Employee/EmpActions';
+import { FetchById, UpdateById} from '../Redux/Employee/EmpActions';
 import { useNavigate, useParams } from "react-router-dom";
 
 const EmployeeEdit = () => {

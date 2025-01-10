@@ -72,8 +72,7 @@ const EmpReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading: false,
-                //employees: [...state.employees, action.payload]
-                employees: state.employees.map((emp) => emp.employeeId === action.payload.employeeId ? action.payload : emp)
+                employees: state.employees.map((edit) => edit.employeeId === action.payload.employeeId ? action.payload : edit)
             }
         default: return state;
     }

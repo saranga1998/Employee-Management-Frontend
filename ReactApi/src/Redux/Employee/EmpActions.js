@@ -1,7 +1,7 @@
 import {
     FETCH_EMPLOYEE_REQUEST, FETCH_EMPLOYEE_SUCCESS, FETCH_EMPLOYEE_FAILURE,
     ADD_EMPLOYEE_SUCCESS, ADD_EMPLOYEE_REQUEST, ADD_EMPLOYEE_FAILURE,
-    Delete_EMPLOYEE_FAILURE, Delete_EMPLOYEE_REQUEST, Delete_EMPLOYEE_SUCCESS
+    Delete_EMPLOYEE_FAILURE, Delete_EMPLOYEE_REQUEST, Delete_EMPLOYEE_SUCCESS,UPDATE_EMPLOYEE_SUCCESS
 } from './EmpTypes';
 import employeeApi from '../../actions/employeeApi';
 
@@ -62,6 +62,13 @@ export const deleteEmployeeFailure = (error) => {
     return {
         type: Delete_EMPLOYEE_FAILURE,
         payload: error
+    };
+};
+
+export const updateEmployeeSuccess = (employees) => {
+    return {
+        type: UPDATE_EMPLOYEE_SUCCESS,
+        payload: employees
     };
 };
 
@@ -133,7 +140,8 @@ export const UpdateById = (id,edit) =>
             employeeApi.employee().EditEmployee(id,edit)
             .then((response) => {
                 const emp = response.data;
-                dispatch(addEmployeeSuccess(emp));
+                console.log("Res",edit);
+                dispatch(updateEmployeeSuccess(edit));
                 dispatch(fetchAll());
             })
             .catch((error) => {
