@@ -10,6 +10,7 @@ import EmployeeEdit from '../Components/Employee/EmployeeEdit';
 
 import AddHoliday from '../Components/Holiday/AddHoliday.Jsx';
 import HolidayView from '../Components/Holiday/HolidayView';
+import HolidayEdit from '../Components/Holiday/HolidayEdit';
 function Pages() {
     return (
         <>
@@ -33,6 +34,7 @@ function Pages() {
                                 <Route path="/employees" element={<EmployeeView />} />
                                 <Route path="/holidays" element={<HolidayView />} />
                                 <Route path="/employees/edit/:id" element={<EmployeeEdit />} />
+                                <Route path="/holidays/edit/:id" element={<HolidayEdit/>}/>
 
                             </Routes>
                         </div>
