@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { fetchAll } from '../../Redux/Holiday/HolidayActions'
+import { fetchAll,deleteById } from '../../Redux/Holiday/HolidayActions'
 
 
 function HolidayView() {
@@ -13,6 +13,10 @@ function HolidayView() {
     useEffect(() => {
         dispatch(fetchAll())
     }, [fetchAll])
+
+    const handleDelete = (id) =>{
+        dispatch(deleteById(id))
+    }
 
     return DaysData.loading ? (
         <h2>Loading...</h2>
@@ -40,7 +44,7 @@ function HolidayView() {
                             <td>{day.title}</td>
 
                             <td><button onClick={() => handleDelete(day.dayId)}>Delete</button></td>
-                            <td><button onClick={() => navigate(`/employees/edit/${day.dayId}`)}>Edit</button></td>
+                            <td><button onClick={() => navigate(`/holidays/edit/${day.dayId}`)}>Edit</button></td>
                         </tr>
                     ))}
                 </tbody>
