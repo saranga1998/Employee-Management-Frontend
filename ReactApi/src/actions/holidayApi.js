@@ -12,8 +12,8 @@ export default {
                 },
             }),
             DeleteHoliday: (id) => axios.delete(`${url}DeleteHoliday/${id}`),
-            FetchByID: (id) => axios.get(`${url}Edit/${id}`),
-            EditHoliday: (id, edit) => axios.put(`${url}Edit/${id}`, edit),
+            FetchByID: (id) => axios.get(`${url}EditHoliday/${id}`),
+            EditHoliday: (id, edit) => axios.put(`${url}EditHoliday/${id}`,edit),
         }
     }
 }

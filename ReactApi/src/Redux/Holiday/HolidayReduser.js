@@ -40,7 +40,7 @@ const HolidayReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading: false,
-                holiday: [...state.employees, action.payload]
+                holiday: [...state.holiday, action.payload]
             }
 
         case 'ADD_HOLIDAY_FAILURE':

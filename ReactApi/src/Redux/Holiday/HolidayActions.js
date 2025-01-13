@@ -135,6 +135,7 @@ export const FetchById = (id) => {
 export const UpdateById = (id,edit) =>
     {
         return (dispatch) => {
+            console.log("Edit",edit);
             dispatch(addHolidayRequest());
             holidayApi.holiday().EditHoliday(id,edit)
             .then((response) => {
@@ -145,7 +146,7 @@ export const UpdateById = (id,edit) =>
             })
             .catch((error) => {
                 const errMsg = error.message;
-                dispatch(addEmployeeFailure(errMsg));
+                dispatch(addHolidayFailure(errMsg));
             });
     };
 };

@@ -10,8 +10,7 @@ const EmployeeEdit = () => {
     const dispatch = useDispatch();
 
     const empData =  useSelector(state => state.employees) 
-    const {loading,error,employees} = empData;
-       
+    const {loading,error,employees} = empData; 
     const [updateEmployee, setEmployee] = useState({
         employeeId: "",
         employeeName: "",

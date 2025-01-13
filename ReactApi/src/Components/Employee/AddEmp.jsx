@@ -1,29 +1,32 @@
-import React,{useState} from 'react'
-import{ useSelector ,useDispatch} from 'react-redux'
+import React, { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { addEmployeeFailure, addEmployeeRequest, create } from '../../Redux/Employee/EmpActions';
+import { useNavigate, } from "react-router-dom";
 
 function AddEmp() {
-    const [employee,setEmployee] = useState({
-        EmployeeId :'',
-        EmployeeName:'',
-        EmployeeEmail:'',
-        EmployeeJob:''
-    });
-    
-    const handleChange = (e) => {
-        setEmployee({...employee,[e.target.name]:e.target.value});
-    };
+  const navigate = useNavigate();
+  const [employee, setEmployee] = useState({
+    EmployeeId: '',
+    EmployeeName: '',
+    EmployeeEmail: '',
+    EmployeeJob: ''
+  });
 
-    const addEmployeeRequest = useSelector(state => state.employees.loading);
-    const addEmployeeFailure = useSelector(state => state.employees.error);
-    const dispatch = useDispatch();
+  const handleChange = (e) => {
+    setEmployee({ ...employee, [e.target.name]: e.target.value });
+  };
 
-    const handleSubmit = (e) => {
-        console.log('Submitting Employee:', employee);
-        e.preventDefault();
-        dispatch(create(employee));
-    };
-    
+  const addEmployeeRequest = useSelector(state => state.employees.loading);
+  const addEmployeeFailure = useSelector(state => state.employees.error);
+  const dispatch = useDispatch();
+
+  const handleSubmit = (e) => {
+    console.log('Submitting Employee:', employee);
+    e.preventDefault();
+    dispatch(create(employee));
+    navigate('/employees');
+  };
+
 
 
   return (
@@ -31,16 +34,16 @@ function AddEmp() {
       <h2>Add Employee</h2>
       <form onSubmit={handleSubmit}>
         <label>Employee Id</label>
-        <input type='text' name='EmployeeId' value={employee.EmployeeId} onChange={handleChange}/>
+        <input type='text' name='EmployeeId' value={employee.EmployeeId} onChange={handleChange} />
         <label>Employee Name</label>
-        <input type='text' name='EmployeeName' value={employee.EmployeeName} onChange={handleChange}/>
+        <input type='text' name='EmployeeName' value={employee.EmployeeName} onChange={handleChange} />
         <label>Employee Email</label>
-        <input type='email' name='EmployeeEmail' value={employee.EmployeeEmail} onChange={handleChange}/>
+        <input type='email' name='EmployeeEmail' value={employee.EmployeeEmail} onChange={handleChange} />
         <label>Employee Job</label>
-        <input type='text' name='EmployeeJob' value={employee.EmployeeJob} onChange={handleChange}/>
+        <input type='text' name='EmployeeJob' value={employee.EmployeeJob} onChange={handleChange} />
 
         {/* <button type='submit' disabled={addEmployeeRequest}>{addEmployeeRequest?'Adding..':'Add Employee'}</button>  */}
-         <button type='submit'>Add Employee</button> 
+        <button type='submit'>Add Employee</button>
       </form>
     </div>
   )

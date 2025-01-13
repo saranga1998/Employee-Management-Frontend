@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { create } from '../../Redux/Holiday/HolidayActions'
-
+import { useNavigate} from "react-router-dom";
 
 function AddHoliday() {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const loading = useSelector(state => state.holidays.loading);
     const error = useSelector(state => state.holidays.error);
 
@@ -18,9 +19,9 @@ function AddHoliday() {
     };
 
     const handleSubmit = (e) => {
-        console.log('Submitting Holiday:', holiday);
         e.preventDefault();
         dispatch(create(holiday));
+        navigate('/holidays');
     };
     return (
         <div>

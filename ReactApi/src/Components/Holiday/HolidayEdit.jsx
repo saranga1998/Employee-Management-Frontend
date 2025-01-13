@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { fetchById, updateById } from "../../Redux/Holiday/HolidayActions";
+import { FetchById,UpdateById } from "../../Redux/Holiday/HolidayActions";
 
 function HolidayEdit() {
 
@@ -11,29 +11,34 @@ function HolidayEdit() {
 
     const holidayData = useSelector(state => state.holidays)
     const { loading, error, holiday } = holidayData;
-
+    
     const [updateDay, setDay] = useState({
-        dayId: "",
-        holiday1: "",
-        title: "",
+        DayId: "",
+        Holiday1: "",
+        Title: "",
     });
 
-    const EditDay = holiday.find((day) => day.dayId.trim() === id.trim());
-
+    const EditDay = holiday.find((d) => d.dayId == id);
+    console.log("EditDay",EditDay);
     useEffect(() => {
         if (EditDay) {
             setDay({
-                dayId: EditDay.dayId.trim(),
-                holiday1: EditDay.holiday1.trim(),
-                title: EditDay.title.trim(),
+                DayId: EditDay.dayId,
+                Holiday1: EditDay.holiday1,
+                Title: EditDay.title,
             })
+            
         } else {
-            dispatch(fetchById(id))
+            dispatch(FetchById(id))
         }
-    },[id,dispatch,holiday])
+    },[dispatch,id,EditDay])
+
+    useEffect(() => {
+        console.log("Updated updateDay:", updateDay);
+    }, [updateDay]);
 
     const handleChange = (e) => {
-        setEmployee({
+        setDay({
             ...updateDay,
             [e.target.name]: e.target.value,
         });
@@ -41,7 +46,7 @@ function HolidayEdit() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(updateById(id, updateDay));
+        dispatch(UpdateById(id, updateDay));
         navigate('/holidays');
     };
 
@@ -54,15 +59,15 @@ function HolidayEdit() {
                 <label>Date</label>
                 <input
                     type="date"
-                    name="holiday1"
-                    value={updateDay.holiday1}
+                    name="Holiday1"
+                    value={updateDay.Holiday1}
                     onChange={handleChange}
                 />
                 <label>Day Title</label>
                 <input
                     type="text"
-                    name="title"
-                    value={updateDay.title}
+                    name="Title"
+                    value={updateDay.Title}
                     onChange={handleChange}
                 />
 
