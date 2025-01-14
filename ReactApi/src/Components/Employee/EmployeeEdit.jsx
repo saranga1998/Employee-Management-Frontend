@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { FetchById, UpdateById} from '../../Redux/Employee/EmpActions';
+import { FetchById, UpdateById } from '../../Redux/Employee/EmpActions';
 import { useNavigate, useParams } from "react-router-dom";
+import { TextInput, EmailInput } from '../Inputs/BasicInputs';
 
 const EmployeeEdit = () => {
 
-    const { id } = useParams(); 
+    const { id } = useParams();
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const empData =  useSelector(state => state.employees) 
-    const {loading,error,employees} = empData; 
+    const empData = useSelector(state => state.employees)
+    const { loading, error, employees } = empData;
     const [updateEmployee, setEmployee] = useState({
         employeeId: "",
         employeeName: "",
@@ -18,11 +19,11 @@ const EmployeeEdit = () => {
         employeeJob: "",
     });
 
-    const Editemployee = employees.find((emp) => emp.employeeId.trim() === id.trim());    
+    const Editemployee = employees.find((emp) => emp.employeeId.trim() === id.trim());
 
     useEffect(() => {
         if (Editemployee) {
-            
+
             setEmployee({
                 employeeId: Editemployee.employeeId.trim(),
                 employeeName: Editemployee.employeeName.trim(),
@@ -30,11 +31,11 @@ const EmployeeEdit = () => {
                 employeeJob: Editemployee.employeeJob.trim(),
             });
         } else {
-            
+
             dispatch(FetchById(id));
-            
+
         }
-    }, [dispatch, id,employees]);
+    }, [dispatch, id, employees]);
 
     const handleChange = (e) => {
         setEmployee({
@@ -56,34 +57,16 @@ const EmployeeEdit = () => {
         <div>
             <h2>Update Employee</h2>
             <form onSubmit={handleSubmit}>
-                <label>Employee Id</label>
-                <input
-                    type="text"
-                    name="employeeId"
-                    value={updateEmployee.employeeId}
-                    disabled
-                />
-                <label>Employee Name</label>
-                <input
-                    type="text"
-                    name="employeeName"
-                    value={updateEmployee.employeeName}
-                    onChange={handleChange}
-                />
-                <label>Employee Email</label>
-                <input
-                    type="email"
-                    name="employeeEmail"
-                    value={updateEmployee.employeeEmail}
-                    onChange={handleChange}
-                />
-                <label>Employee Job</label>
-                <input
-                    type="text"
-                    name="employeeJob"
-                    value={updateEmployee.employeeJob}
-                    onChange={handleChange}
-                />
+
+                <TextInput
+                    label='Employee Id' name='employeeId' type='text' value={updateEmployee.employeeId} onChange={handleChange} disabled />
+                <TextInput
+                    label="Employee Name" name="employeeName" type="text" value={updateEmployee.employeeName} onChange={handleChange} />
+                <EmailInput
+                    label="Employee Email" name="employeeEmail" type="email" value={updateEmployee.employeeEmail} onChange={handleChange} />
+                <TextInput
+                    label="Employee Job" name="employeeJob" type="text" value={updateEmployee.employeeJob} onChange={handleChange} />
+
                 <button type="submit">Update Employee</button>
             </form>
         </div>
