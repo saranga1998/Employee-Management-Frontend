@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { create } from '../../Redux/Holiday/HolidayActions'
 import { useNavigate} from "react-router-dom";
+import { DateInput,TextInput } from '../Inputs/BasicInputs';
 
 function AddHoliday() {
     const dispatch = useDispatch();
@@ -28,13 +29,12 @@ function AddHoliday() {
 
             <h2>Add Holiday</h2>
             <form onSubmit={handleSubmit}>
-
-                <label>Employee Id</label>
-                <input type='Date' name='holiday1' value={holiday.holiday1} onChange={handleChange} />
-
-                <label>Holiday Title</label>
-                <input type='text' name='title' value={holiday.title} onChange={handleChange} />
-
+    
+                <DateInput label="Select Date" name="holiday1" type="Date" value={holiday.holiday1} onChange={handleChange}/>
+                
+                <TextInput
+                    label="Holiday Title" name="title" type="text" value={holiday.title} onChange={handleChange} />
+                    
                 <button type='submit'>Add Holiday</button>
             </form>
 
