@@ -32,8 +32,7 @@ function AddHoliday() {
     
                 <DateInput label="Select Date" name="holiday1" type="Date" value={holiday.holiday1} onChange={handleChange}/>
                 
-                <TextInput
-                    label="Holiday Title" name="title" type="text" value={holiday.title} onChange={handleChange} />
+                <TextInput label="Holiday Title" name="title" type="text" value={holiday.title} onChange={handleChange} />
                     
                 <button type='submit'>Add Holiday</button>
             </form>
