@@ -9,7 +9,7 @@ const axiosInstance = axios.create({
 const baseUrl = "http://localhost:5278/";
 
 export default{
-    authenticate(){
+    Authenticate(){
         return{
             
             LoginUser : user => axiosInstance.post('Login',user),
