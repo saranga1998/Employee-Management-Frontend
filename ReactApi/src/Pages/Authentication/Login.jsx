@@ -32,7 +32,8 @@ function Login() {
       dispatch(login(credential));
       if(user){
         console.log("Token",user)
-        localStorage.setItem('Token', user.token);
+        localStorage.setItem('Access Token', user.accessToken);
+        localStorage.setItem('Refresh Token',user.refreshToken);
         navigate('/'); 
       }
       else{

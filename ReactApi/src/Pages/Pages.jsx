@@ -12,6 +12,7 @@ import AddHoliday from '../Components/Holiday/AddHoliday.Jsx';
 import HolidayView from '../Components/Holiday/HolidayView';
 import HolidayEdit from '../Components/Holiday/HolidayEdit';
 import Login from './Authentication/Login';
+import Logout from '../Components/UserDetails/Logout';
 function Pages() {
     return (
         <>
@@ -26,6 +27,7 @@ function Pages() {
                                     <li><a href="/employees">Employee List</a></li>
                                     <li><a href="/login">Login</a></li>
                                 </ul>
+                                <Logout/>
                             </nav>
 
                             {/* Define Routes */}

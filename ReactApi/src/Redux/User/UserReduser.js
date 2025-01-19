@@ -1,4 +1,7 @@
-import { LOG_USER_FAILURE, LOG_USER_SUCCESS, LOG_USER_REQUEST } from "./UserTypes";
+import {
+    LOG_USER_FAILURE, LOG_USER_SUCCESS, LOG_USER_REQUEST,
+    LOGOUT_USER_FAILURE, LOGOUT_USER_REQUEST, LOGOUT_USER_SUCCESS
+} from "./UserTypes";
 
 const initialState = {
     loading: false,
@@ -22,6 +25,24 @@ const UserReducer = (state = initialState, action) => {
             }
 
         case LOG_USER_FAILURE:
+            return {
+                loading: false,
+                user: [],
+                error: payload.error
+            }
+
+        case LOGOUT_USER_REQUEST:
+            return {
+                ...state,
+                loading: true
+            }
+
+        case LOGOUT_USER_SUCCESS:
+            return {
+                ...state,
+                user: null,   
+            }
+        case LOGOUT_USER_FAILURE:
             return {
                 loading: false,
                 user: [],
