@@ -42,27 +42,27 @@ export const logoutUserFailure = (error) =>{
 }
 
 export const login = (user) => {
-    return(dispatch)=>{
+    return async(dispatch)=>{
         dispatch(logUserRequest())
-        AuthenticateApi.Authenticate().LoginUser(user)
-        .then((response)=>{
+        try{
+            const response = await AuthenticateApi.Authenticate().LoginUser(user)
             const data = response.data;
             dispatch(logUserSuccess(data))
-        })
-        .catch((error)=>{
-            const errMsg = error.message;
-            dispatch(logUserFailure(errMsg))
-        })
+        }
+        catch(error){
+            dispatch(logUserFailure(error))
+        }
+        
     }
 }
 
 export const logout =(token) =>{
     return(dispatch)=>{
         dispatch(logoutUserRequest())
-        AuthenticateApi.Authenticate().Logout()
+        AuthenticateApi.Authenticate().Logout(token)
         .then((response)=>{
             const data = response.data;
-            dispatch(logUserSuccess(data))
+            dispatch(logoutUserSuccess(data))
         })
         .catch((error)=>{
             const errMsg = error.message;

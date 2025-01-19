@@ -15,7 +15,11 @@ export default{
             LoginUser : user => axiosInstance.post('Login',user),
             RegisterUser : newUser => axiosInstance.post('RegisterUser',newUser),
             Refresh : refresh => axiosInstance.post('Refresh',refresh),
-            Logout : () => axiosInstance.delete(`DeleteEmployee`),
+            Logout : (token) => axiosInstance.delete(`Logout`,{
+                headers:{
+                    "Authorization": `Bearer ${token}`
+                },
+            }),
             
         }
     }
