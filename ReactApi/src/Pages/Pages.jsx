@@ -20,14 +20,14 @@ function Pages() {
                 <ErrorBoundary>
                     <Router>
                         <div>
-                            <nav>
-                                <ul>
-                                    <li><a href="/">Home</a></li>
-                                    <li><a href="/holidays">Holiday List</a></li>
-                                    <li><a href="/employees">Employee List</a></li>
-                                    <li><a href="/login">Login</a></li>
+                            <nav className='nav-bar'>
+                                <ul class="flex">
+                                    <li class="flex-1 mr-2"><a class="text-center block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white" href="/">Home</a></li>
+                                    <li class="flex-1 mr-2"><a class="text-center block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white" href="/holidays">Holiday List</a></li>
+                                    <li class="flex-1 mr-2"><a class="text-center block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white" href="/employees">Employee List</a></li>
+                                    <li class="flex-1 mr-2"><a class="text-center block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white" href="/login">Login</a></li>
                                 </ul>
-                                <Logout/>
+                                <Logout />
                             </nav>
 
                             {/* Define Routes */}
