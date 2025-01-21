@@ -3,8 +3,8 @@ import React from 'react';
 //Text Input
 export const TextInput = ({ label, name, type = 'text', value, onChange,disabled = false }) => {
     return (
-        <div style={{ marginBottom: '1rem',display: 'flex' }}>
-            <label htmlFor={name} style={{paddingRight: '1rem',fontSize: '1rem',width: '40%'}}>
+        <div className="w-full max-w-sm min-w-[200px]">
+            <label htmlFor={name} className="block text-gray-700 text-sm font-bold mb-2">
                 {label}
             </label>
             <input
@@ -14,12 +14,7 @@ export const TextInput = ({ label, name, type = 'text', value, onChange,disabled
                 value={value}
                 onChange={onChange}
                 disabled={disabled}
-                style={{
-                    width: '60%',    
-                    fontSize: '1rem',
-                    border: '1px solid #ccc',
-                    borderRadius: '4px',
-                }}
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
         </div>
     );
@@ -28,8 +23,8 @@ export const TextInput = ({ label, name, type = 'text', value, onChange,disabled
 //Email Input
 export const EmailInput = ({ label, name, type = 'email', value, onChange }) => {
     return (
-        <div style={{ marginBottom: '1rem',display: 'flex' }}>
-            <label htmlFor={name} style={{paddingRight: '1rem',fontSize: '1rem',width: '40%'}}>
+        <div className="w-full max-w-sm min-w-[200px]">
+            <label htmlFor={name} className="block text-gray-700 text-sm font-bold mb-2">
                 {label}
             </label>
             <input
@@ -38,13 +33,7 @@ export const EmailInput = ({ label, name, type = 'email', value, onChange }) => 
                 name={name}
                 value={value}
                 onChange={onChange}
-                
-                style={{
-                    width: '60%',
-                    fontSize: '1rem',
-                    border: '1px solid #ccc',
-                    borderRadius: '4px',
-                }}
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
         </div>
     );
@@ -53,8 +42,8 @@ export const EmailInput = ({ label, name, type = 'email', value, onChange }) => 
 //Date Input
 export const DateInput = ({ label, name, type = 'date', value, onChange }) => {
     return (
-        <div style={{ marginBottom: '1rem',display: 'flex' }}>
-            <label htmlFor={name} style={{paddingRight: '1rem',fontSize: '1rem',width: '40%'}}>
+        <div className="w-full max-w-sm min-w-[200px]">
+            <label htmlFor={name} className="block mb-2 text-sm text-slate-600">
                 {label}
             </label>
             <input
@@ -62,14 +51,8 @@ export const DateInput = ({ label, name, type = 'date', value, onChange }) => {
                 type={type}
                 name={name}
                 value={value}
-                onChange={onChange}
-                
-                style={{
-                    width: '60%',
-                    fontSize: '1rem',
-                    border: '1px solid #ccc',
-                    borderRadius: '4px',
-                }}
+                onChange={onChange} 
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
 
         </div>
@@ -79,8 +62,8 @@ export const DateInput = ({ label, name, type = 'date', value, onChange }) => {
 //Password Input
 export const PasswordInput = ({ label, name, type = 'password', value, onChange }) =>{
     return(
-        <div style={{ marginBottom: '1rem',display: 'flex' }}>
-            <label htmlFor={name} style={{paddingRight: '1rem',fontSize: '1rem',width: '40%'}}>
+        <div className="w-full max-w-sm min-w-[200px]">
+            <label htmlFor={name} className="block text-gray-700 text-sm font-bold mb-2">
                 {label}
             </label>
             <input
@@ -89,12 +72,7 @@ export const PasswordInput = ({ label, name, type = 'password', value, onChange 
                 name={name}
                 value={value}
                 onChange={onChange}
-                style={{
-                    width: '60%',    
-                    fontSize: '1rem',
-                    border: '1px solid #ccc',
-                    borderRadius: '4px',
-                }}
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
         </div>
     );

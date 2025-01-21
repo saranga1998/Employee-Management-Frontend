@@ -6,7 +6,6 @@ const axiosInstance = axios.create({
         "Content-Type": "application/json",
     },
 });
-const baseUrl = "http://localhost:5278/";
 
 export default{
     Authenticate(){

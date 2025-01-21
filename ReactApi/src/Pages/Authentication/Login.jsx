@@ -32,8 +32,6 @@ function Login() {
       if (user && user.accessToken) {
         localStorage.setItem('Access Token', user.accessToken);
         localStorage.setItem('Refresh Token', user.refreshToken);
-        console.log('Access Token', user.accessToken)
-        console.log('Refresh Token', user.refreshToken)
         navigate('/');
       }
       else {
@@ -45,17 +43,28 @@ function Login() {
 
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <TextInput
-          label="Username" name="username" type="text" value={credential.username} onChange={handleChange} />
+    <div className='content-center'>
+      <div className='max-w-sm rounded overflow-hidden shadow-lg p-2'>
+        <form onSubmit={handleSubmit} class="mt-8 flex flex-col">
 
-        <PasswordInput
-          label="Password" name="password" type="password" value={credential.password} onChange={handleChange} />
-        {credential.error && <p style={{ color: 'red' }}>{credential.error}</p>}
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        <button type='submit'>Login</button>
-      </form>
+          <TextInput
+            label="Username" name="username" type="text" value={credential.username} onChange={handleChange} />
+
+          <PasswordInput
+            label="Password" name="password" type="password" value={credential.password} onChange={handleChange} />
+
+          {credential.error && <p style={{ color: 'red' }}>{credential.error}</p>}
+          {error && <p style={{ color: 'red' }}>{error}</p>}
+
+          <div className='pt-2'>
+            <button type='submit'
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded 
+              focus:outline-none focus:shadow-outline">Login</button>
+          </div>
+
+        </form>
+      </div>
+
     </div>
   )
 }

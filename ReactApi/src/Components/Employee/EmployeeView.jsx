@@ -31,25 +31,26 @@ function EmployeeView() {
 
                     <div>
                         <div>
-                            <button onClick={() => navigate('/add-employee')}>Add Employee</button>
+                            <button onClick={() => navigate('/add-employee')} 
+                            className="w-full mt-6 rounded-md bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">Add Employee</button>
                         </div>
-                        <table>
+                        <table className='table-auto'>
                             <thead>
                                 <tr>
-                                    <th scope="col">Employee Id</th>
-                                    <th scope="col">Employee Name</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Job</th>
-                                    <th scope="col">Action</th>
+                                    <th scope="col" className='px-4 py-2'>Employee Id</th>
+                                    <th scope="col" className='px-4 py-2'>Employee Name</th>
+                                    <th scope="col" className='px-4 py-2'>Email</th>
+                                    <th scope="col" className='px-4 py-2'>Job</th>
+                                    <th scope="col" className='px-4 py-2'>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {EmpData.employees.map(emp => (
                                     <tr key={emp.employeeId}>
-                                        <td>{emp.employeeId}</td>
-                                        <td>{emp.employeeName}</td>
-                                        <td>{emp.employeeEmail}</td>
-                                        <td>{emp.employeeJob}</td>
+                                        <td className='border px-4 py-2'>{emp.employeeId}</td>
+                                        <td className='border px-4 py-2'>{emp.employeeName}</td>
+                                        <td className='border px-4 py-2'>{emp.employeeEmail}</td>
+                                        <td className='border px-4 py-2'>{emp.employeeJob}</td>
                                         <td><button onClick={() => handleDelete(emp.employeeId)}>Delete</button></td>
                                         <td><button onClick={() => navigate(`/employees/edit/${emp.employeeId}`)}>Edit</button></td>
                                     </tr>
