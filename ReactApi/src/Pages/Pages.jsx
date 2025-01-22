@@ -21,11 +21,11 @@ function Pages() {
                     <Router>
                         <div>
                             <nav className='nav-bar'>
-                                <ul class="flex">
-                                    <li class="flex-1 mr-2"><a class="text-center block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white" href="/">Home</a></li>
-                                    <li class="flex-1 mr-2"><a class="text-center block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white" href="/holidays">Holiday List</a></li>
-                                    <li class="flex-1 mr-2"><a class="text-center block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white" href="/employees">Employee List</a></li>
-                                    <li class="flex-1 mr-2"><a class="text-center block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white" href="/login">Login</a></li>
+                                <ul className="flex">
+                                    <li className="flex-1 mr-2"><a className="text-center block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white" href="/">Home</a></li>
+                                    <li className="flex-1 mr-2"><a className="text-center block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white" href="/holidays">Holiday List</a></li>
+                                    <li className="flex-1 mr-2"><a className="text-center block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white" href="/employees">Employee List</a></li>
+                                    <li className="flex-1 mr-2"><a className="text-center block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white" href="/login">Login</a></li>
                                 </ul>
                                 <Logout />
                             </nav>
