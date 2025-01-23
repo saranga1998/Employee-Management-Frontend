@@ -47,15 +47,15 @@ function Login() {
 
 
   return (
-    <div className='content-center'>
+    <div className='content-center '>
       <button onClick={() => setModalIsOpen(true)}>Login</button>
 
-      <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} className='modal bg-transparent flex justify-center '>
-        <div className='max-w-sm rounded overflow-hidden shadow-lg p-2  bg-white'>
-          <div className='flex justify-end'>
+      <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} className='modal bg-transparent flex justify-center mt-28 '>
+        <div className='rounded overflow-hidden shadow-2xl p-2  bg-white h-72 w-72'>
+          <div className='flex justify-end hover:border-2 border-black-100'>
             <button onClick={() => setModalIsOpen(false)}><IoCloseOutline /></button>
           </div>
-          <form onSubmit={handleSubmit} class="mt-8 flex flex-col">
+          <form onSubmit={handleSubmit} class="mt-8 flex flex-col content-around gap-1">
 
             <TextInput
               label="Username" name="username" type="text" value={credential.username} onChange={handleChange} />
@@ -66,10 +66,9 @@ function Login() {
             {credential.error && <p style={{ color: 'black' }}>{credential.error}</p>}
             {error && <p style={{ color: 'red' }}>{error}</p>}
 
-            <div className='pt-2'>
+            <div className='border-2 border-white rounded-lg border-solid m-1 text-center outline-none place-items-end shadow-md'>
               <button type='submit'
-                className="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded 
-              focus:outline-none focus:shadow-outline">Login</button>
+                className=" text-gray-700 font-bold text-sm ">LOGIN</button>
             </div>
 
           </form>
