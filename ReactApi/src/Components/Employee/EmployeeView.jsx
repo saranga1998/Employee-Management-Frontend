@@ -35,8 +35,8 @@ function EmployeeView() {
                             className="w-full mt-6 rounded-md bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">Add Employee</button>
                         </div>
                         <table className='table-auto m-2'>
-                            <thead className='border-2 rounded-t bg-blue-400 text-white'>
-                                <tr>
+                            <thead className=' bg-blue-600 text-white'>
+                                <tr className='border-2 border-blue-500 rounded-t'>
                                     <th scope="col" className='px-4 py-2'>Employee Id</th>
                                     <th scope="col" className='px-4 py-2'>Employee Name</th>
                                     <th scope="col" className='px-4 py-2'>Email</th>
