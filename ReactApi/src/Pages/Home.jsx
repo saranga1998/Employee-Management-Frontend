@@ -1,6 +1,9 @@
 import React from 'react'
 import Login from './Authentication/Login'
 import { IoLockClosedSharp } from "react-icons/io5";
+import { Provider } from 'react-redux'
+import store from '../Redux/Store'
+import ErrorBoundary from '../Components/ErrorBoundary'
 
 function Home() {
   return (
@@ -26,7 +29,7 @@ function Home() {
 
               <div className='flex justify-center p-2'>
                 <p className='text-gray-500 font-light italic '>Company Members Only</p>
-                <IoLockClosedSharp />
+                <IoLockClosedSharp className='pt-1'/>
               </div>
 
               <div className='p-2'>
