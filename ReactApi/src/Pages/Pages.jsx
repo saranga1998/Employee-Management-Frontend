@@ -12,6 +12,7 @@ import AddHoliday from '../Components/Holiday/AddHoliday.Jsx';
 import HolidayView from '../Components/Holiday/HolidayView';
 import HolidayEdit from '../Components/Holiday/HolidayEdit';
 import Login from './Authentication/Login';
+import Navbar from '../Components/Other/Navbar';
 
 function Pages() {
     return (
@@ -20,19 +21,11 @@ function Pages() {
                 <ErrorBoundary>
                     <Router>
                         <div>
-                            <nav className='nav-bar'>
-                                <ul className="flex">
-                                    <li className="flex-1 mr-2"><a className="text-center block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white" href="/">Home</a></li>
-                                    <li className="flex-1 mr-2"><a className="text-center block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white" href="/holidays">Holiday List</a></li>
-                                    <li className="flex-1 mr-2"><a className="text-center block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white" href="/employees">Employee List</a></li>
-                                    <li className="flex-1 mr-2"><a className="text-center block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white" href="/login">Login</a></li>
-                                </ul>
-                                
-                            </nav>
+                            <Navbar/>
 
                             {/* Define Routes */}
                             <Routes>
-                                <Route path="/login" element={<Login />} />
+                                {/* <Route path="/login" element={<Login />} /> */}
                                 <Route path="/" element={<Home />} />
                                 <Route path="/add-employee" element={<AddEmp />} />
                                 <Route path="/add-holiday" element={<AddHoliday />} />
