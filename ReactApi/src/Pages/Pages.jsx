@@ -25,7 +25,7 @@ function Pages() {
 
                             {/* Define Routes */}
                             <Routes>
-                                {/* <Route path="/login" element={<Login />} /> */}
+                                <Route path="/login" element={<Login />} />
                                 <Route path="/" element={<Home />} />
                                 <Route path="/add-employee" element={<AddEmp />} />
                                 <Route path="/add-holiday" element={<AddHoliday />} />

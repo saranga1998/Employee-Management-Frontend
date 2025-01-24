@@ -1,13 +1,13 @@
 import React from 'react'
-import Login from './Authentication/Login'
 import { IoLockClosedSharp } from "react-icons/io5";
-import { Provider } from 'react-redux'
-import store from '../Redux/Store'
-import ErrorBoundary from '../Components/ErrorBoundary'
+
+
+
 
 function Home() {
   return (
     <div className='flex justify-center'>
+    
       <div className='bg-gray-400 columns-1'>
         <p className='font-sans text-sm font-medium tracking-wide'>Abc</p>
       </div>
