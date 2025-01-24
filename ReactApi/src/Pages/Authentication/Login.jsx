@@ -19,7 +19,9 @@ function Login() {
     password: '',
     error: '',
   });
-
+  const handleModal =() =>{
+    setModalIsOpen(true)
+  }
   const handleChange = (e) => {
     setCredential({ ...credential, [e.target.name]: e.target.value })
   }
@@ -36,7 +38,7 @@ function Login() {
       if (user && user.accessToken) {
         localStorage.setItem('Access Token', user.accessToken);
         localStorage.setItem('Refresh Token', user.refreshToken);
-        navigate('/');
+        navigate('/employees');
       }
       else {
         setLogError('Log error');
@@ -48,14 +50,14 @@ function Login() {
 
   return (
     <div className='content-center '>
-      <button onClick={() => setModalIsOpen(true)}>Login</button>
+      <button onClick={handleModal}>Login</button>
 
       <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} className='modal bg-transparent flex justify-center mt-28 '>
         <div className='rounded overflow-hidden shadow-2xl p-2  bg-white h-72 w-72'>
           <div className='flex justify-end hover:border-2 border-black-100'>
             <button onClick={() => setModalIsOpen(false)}><IoCloseOutline /></button>
           </div>
-          <form onSubmit={handleSubmit} class="mt-8 flex flex-col content-around gap-1">
+          <form onSubmit={handleSubmit} className="mt-8 flex flex-col content-around gap-1">
 
             <TextInput
               label="Username" name="username" type="text" value={credential.username} onChange={handleChange} />
