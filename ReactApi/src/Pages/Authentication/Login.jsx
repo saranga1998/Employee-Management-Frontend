@@ -38,6 +38,7 @@ function Login() {
       if (user && user.accessToken) {
         localStorage.setItem('Access Token', user.accessToken);
         localStorage.setItem('Refresh Token', user.refreshToken);
+        setModalIsOpen(false)
         navigate('/employees');
       }
       else {
