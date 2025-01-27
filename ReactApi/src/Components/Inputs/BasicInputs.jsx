@@ -43,7 +43,7 @@ export const EmailInput = ({ label, name, type = 'email', value, onChange }) => 
 export const DateInput = ({ label, name, type = 'date', value, onChange }) => {
     return (
         <div className="w-full max-w-sm min-w-[200px]">
-            <label htmlFor={name} className="block mb-2 text-sm text-slate-600">
+            <label htmlFor={name} className="block text-gray-700 text-sm font-bold mb-2">
                 {label}
             </label>
             <input

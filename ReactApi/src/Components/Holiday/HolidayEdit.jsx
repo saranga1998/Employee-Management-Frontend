@@ -55,15 +55,23 @@ function HolidayEdit() {
     if (error) return <h2>{error}</h2>;
     return (
         <div>
-            <h2>Update Holiday</h2>
-            <form onSubmit={handleSubmit}>
+            <h2 className='block text-xl font-medium text-slate-800'>Update Holiday</h2>
+            <div className='border-2 border-black block p-5 rounded-md '>
+                <form onSubmit={handleSubmit} className='m-4 content-around'>
 
-                <DateInput label="Select Date" name="holiday1" type="Date" value={updateDay.Holiday1} onChange={handleChange} />
-                <TextInput
-                    label="Holiday Title" name="title" type="text" value={updateDay.Title} onChange={handleChange} />
+                    <DateInput label="Select Date" name="holiday1" type="Date" value={updateDay.Holiday1} onChange={handleChange} />
+                    <TextInput
+                        label="Holiday Title" name="title" type="text" value={updateDay.Title} onChange={handleChange} />
 
-                <button type="submit">Update Holiday</button>
-            </form>
+                    
+                    <div className='p-2 flex justify-center'>
+                        <button type='submit'
+                            className='bg-blue-500 hover:bg-blue-700
+                             text-white font-bold py-2 px-4 border border-blue-700 rounded' >Update Holiday</button>
+                    </div>
+                </form>
+            </div>
+
         </div>
     )
 }

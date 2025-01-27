@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { create } from '../../Redux/Holiday/HolidayActions'
-import { useNavigate} from "react-router-dom";
-import { DateInput,TextInput } from '../Inputs/BasicInputs';
+import { useNavigate } from "react-router-dom";
+import { DateInput, TextInput } from '../Inputs/BasicInputs';
 
 function AddHoliday() {
     const dispatch = useDispatch();
@@ -27,15 +27,23 @@ function AddHoliday() {
     return (
         <div>
 
-            <h2>Add Holiday</h2>
-            <form onSubmit={handleSubmit}>
-    
-                <DateInput label="Select Date" name="holiday1" type="Date" value={holiday.holiday1} onChange={handleChange}/>
-                
-                <TextInput label="Holiday Title" name="title" type="text" value={holiday.title} onChange={handleChange} />
-                    
-                <button type='submit'>Add Holiday</button>
-            </form>
+            <h2 className='block text-xl font-medium text-slate-800'>Add Holiday</h2>
+            <div className='border-2 border-black block p-5 rounded-md '>
+                <form onSubmit={handleSubmit} className='m-4 content-around'>
+
+                    <DateInput label="Select Date" name="holiday1" type="Date" value={holiday.holiday1} onChange={handleChange} />
+
+                    <TextInput label="Holiday Title" name="title" type="text" value={holiday.title} onChange={handleChange} />
+
+
+                    <div className='p-2 flex justify-center'>
+                        <button type='submit'
+                            className='bg-blue-500 hover:bg-blue-700
+                             text-white font-bold py-2 px-4 border border-blue-700 rounded' >Add Holiday</button>
+                    </div>
+                </form>
+            </div>
+
 
         </div>
     )
