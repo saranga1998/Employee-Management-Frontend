@@ -2,7 +2,7 @@ import React from 'react'
 import { logout } from '../../Redux/User/UserActions'
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-
+import { GrLogout } from "react-icons/gr";
 
 function Logout() {
   const dispatch = useDispatch();
@@ -16,9 +16,8 @@ function Logout() {
     navigate('/')
   }
   return (
-    <div>
-      <button onClick={handleClick}>Logout</button>
-    </div>
+      <button onClick={handleClick} className='border-2 rounded-xl w-20 inline-flex items-center justify-center font-bold text-sm shadow-md'>Logout<span className='ml-1'><GrLogout/></span></button>
+    
   )
 }
 

@@ -23,7 +23,7 @@ function Navbar() {
                     <li className="flex-1 "><a className="text-center block hover:bg-pink-200 hover:border-2 border-blue-500 rounded py-2 px-4 text-black font-medium" href="/">Home</a></li>
                     <li className="flex-1 "><div className="text-center block hover:bg-white hover:border-2 border-blue-500 rounded py-2 px-4 text-black font-medium" >                        
                     {isLoggedIn ?<Login/>:<Logout/>}</div></li>
-                    <li className="flex-1 "><div className="text-center block hover:bg-white hover:border-2 border-blue-500 rounded py-2 px-4 text-black font-medium" ><Logout/></div></li>
+                    <li className="flex-1"><div className=" hover:bg-white hover:border-2 border-blue-500 rounded-3xl text-black  py-2 px-4 size-10" ><Profile/></div></li>
                 </ul>
 
             </nav>
