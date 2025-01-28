@@ -55,20 +55,28 @@ const EmployeeEdit = () => {
 
     return (
         <div>
-            <h2>Update Employee</h2>
-            <form onSubmit={handleSubmit}>
+            <h2 className='block text-xl font-medium text-slate-800'>Update Employee</h2>
+            <div className='border-2 border-black block p-5 rounded-md '>
+                <form onSubmit={handleSubmit} className='m-4 content-around'>
 
-                <TextInput
-                    label='Employee Id' name='employeeId' type='text' value={updateEmployee.employeeId} onChange={handleChange} disabled />
-                <TextInput
-                    label="Employee Name" name="employeeName" type="text" value={updateEmployee.employeeName} onChange={handleChange} />
-                <EmailInput
-                    label="Employee Email" name="employeeEmail" type="email" value={updateEmployee.employeeEmail} onChange={handleChange} />
-                <TextInput
-                    label="Employee Job" name="employeeJob" type="text" value={updateEmployee.employeeJob} onChange={handleChange} />
+                    <TextInput
+                        label='Employee Id' name='employeeId' type='text' value={updateEmployee.employeeId} onChange={handleChange} disabled />
+                    <TextInput
+                        label="Employee Name" name="employeeName" type="text" value={updateEmployee.employeeName} onChange={handleChange} />
+                    <EmailInput
+                        label="Employee Email" name="employeeEmail" type="email" value={updateEmployee.employeeEmail} onChange={handleChange} />
+                    <TextInput
+                        label="Employee Job" name="employeeJob" type="text" value={updateEmployee.employeeJob} onChange={handleChange} />
 
-                <button type="submit">Update Employee</button>
-            </form>
+                    
+                    <div className='p-2 flex justify-center'>
+                        <button type='submit'
+                            className='bg-blue-500 hover:bg-blue-700
+                             text-white font-bold py-2 px-4 border border-blue-700 rounded' >Update Employee</button>
+                    </div>
+                </form>
+            </div>
+
         </div>
     );
 };
