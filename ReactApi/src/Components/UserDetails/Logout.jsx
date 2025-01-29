@@ -16,7 +16,7 @@ function Logout() {
     navigate('/')
   }
   return (
-      <button onClick={handleClick} className='border-2 rounded-xl w-20 inline-flex items-center justify-center font-bold text-sm shadow-md'>Logout<span className='ml-1'><GrLogout/></span></button>
+      <button onClick={handleClick} className='border-2 rounded-xl w-20 inline-flex items-center justify-center font-bold text-sm shadow-md bg-white'>Logout<span className='ml-1'><GrLogout/></span></button>
     
   )
 }
