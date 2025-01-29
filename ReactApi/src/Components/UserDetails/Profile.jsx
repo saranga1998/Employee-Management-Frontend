@@ -1,29 +1,79 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Modal from 'react-modal'
-import { useSelector, useDispatch } from 'react-redux'
 import { IoCloseOutline } from "react-icons/io5";
 import { AiOutlineUser } from "react-icons/ai";
-
+import axios from "axios";
 import Logout from '../UserDetails/Logout'
+import Profilepic from '../../../public/Icons/Profilepic.jpg'
 
 Modal.setAppElement('#root');
 function Profile() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const EmpData = useSelector(state => state.employees)
+
+  const [user, setUser] = useState(
+    {
+      id: '',
+      username: '',
+      email: '',
+    }
+  )
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      const token = localStorage.getItem("Access Token");
+      if (token) {
+        try {
+          const response = await axios.get("http://localhost:5278/Authentication/UserProfile", {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+
+          setUser({
+            id: response.data.id,
+            username: response.data.username,
+            email: response.data.email,
+          });
+        } catch (error) {
+          console.error("Error fetching user profile:", error);
+        }
+      }
+    };
+
+    fetchUserProfile();
+  }, []);
+
   const handleModal = () => {
     setModalIsOpen(true)
   }
+
   return (
     <div className='flex justify-center'>
-      <button onClick={handleModal} className='text-base font-bold'><AiOutlineUser/></button>
+      <button onClick={handleModal} className='text-base font-bold'><AiOutlineUser /></button>
+
       <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} className='modal bg-transparent flex justify-end mt-12'>
-        <div className='rounded overflow-hidden shadow-2xl p-2  bg-white h-72 w-72'>
-          <div className='flex justify-end hover:border-2 border-black-100'>
-            <button onClick={() => setModalIsOpen(false)}><IoCloseOutline /></button>
+
+        <div className='rounded-md overflow-hidden shadow-2xl p-2 bg-blue-100 h-72 w-72 hover:border-2 border-blue-700'>
+
+          <div className='flex justify-end'>
+            <button onClick={() => setModalIsOpen(false)} className='hover:scale-125 '><IoCloseOutline /></button>
           </div>
-          <p>User name</p>
-          <div className='flex justify-center'>
-            <Logout/> 
+          <div className='inline-block justify-items-center pl-14'>
+            <div className='size-12 border-2 border-blue-700 rounded-full p-1  bg-white hover:scale-105'>
+              <img src={Profilepic} className='rounded-full shadow-lg'></img>
+            </div>
+            <div className='p-1 justify-items-center'>
+
+              <p className='text-sm font-bold text-pink-500'>{user.username}</p>
+              <p className='text-xs text-pink-500'>{user.email}</p>
+            </div>
+          </div>
+          <div className='pl-4 font-light text-sm text-red-400 pt-5 m-1'>
+            <a className='hover:font-normal'>Manage my details</a>
+            <p className='hover:font-normal'> Privacy Policy</p>
+            <p className='hover:font-normal'> Terms of Service</p>
+          </div>
+          <div className='flex justify-center hover:scale-x-105 pt-12' onClick={() => setModalIsOpen(false)}>
+            <Logout />
           </div>
         </div>
 

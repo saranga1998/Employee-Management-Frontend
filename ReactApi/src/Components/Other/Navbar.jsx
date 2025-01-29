@@ -13,7 +13,7 @@ function Navbar() {
 
     return (
         <div className='row-auto mt-2 content-center'>
-            <nav className='nav-bar bg-blue-300 flex justify-between p-2'>
+            <nav className='nav-bar bg-blue-800 flex justify-between p-2'>
                 <div className="flex text-center">
                     <p className=' text-md italic font-bold '>Employee Management System</p>
                 </div>
