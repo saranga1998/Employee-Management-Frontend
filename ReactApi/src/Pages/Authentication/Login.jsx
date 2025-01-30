@@ -39,7 +39,7 @@ function Login() {
         localStorage.setItem('Access Token', user.accessToken);
         localStorage.setItem('Refresh Token', user.refreshToken);
         setModalIsOpen(false)
-        navigate('/employees');
+        navigate('/DashBoard');
       }
       else {
         setLogError('Log error');

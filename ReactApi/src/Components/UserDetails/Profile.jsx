@@ -4,7 +4,7 @@ import { IoCloseOutline } from "react-icons/io5";
 import { AiOutlineUser } from "react-icons/ai";
 import axios from "axios";
 import Logout from '../UserDetails/Logout'
-import Profilepic from '../../../public/Icons/Profilepic.jpg'
+import Profilepic from '../../assets/Profilepic.jpg'
 
 Modal.setAppElement('#root');
 function Profile() {
@@ -69,6 +69,7 @@ function Profile() {
           </div>
           <div className='pl-4 font-light text-sm text-red-400 pt-5 m-1'>
             <a className='hover:font-normal'>Manage my details</a>
+            <a className='hover:font-normal' href="/DashBoard">DashBoard</a>
             <p className='hover:font-normal'> Privacy Policy</p>
             <p className='hover:font-normal'> Terms of Service</p>
           </div>
