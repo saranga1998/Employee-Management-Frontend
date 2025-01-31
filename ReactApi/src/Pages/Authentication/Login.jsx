@@ -53,10 +53,11 @@ function Login() {
     <div className='content-center '>
       <button onClick={handleModal}>Login</button>
 
-      <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} className='modal bg-transparent flex justify-center mt-28 '>
+      <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} className='modal bg-transparent flex justify-center mt-28'
+      overlayClassName="fixed inset-0 bg-black bg-opacity-10">
         <div className='rounded overflow-hidden shadow-2xl p-2  bg-white h-72 w-72'>
-          <div className='flex justify-end hover:border-2 border-black-100'>
-            <button onClick={() => setModalIsOpen(false)}><IoCloseOutline /></button>
+          <div className='flex justify-end '>
+            <button onClick={() => setModalIsOpen(false)} className='hover:scale-125'><IoCloseOutline /></button>
           </div>
           <form onSubmit={handleSubmit} className="mt-8 flex flex-col content-around gap-1">
 

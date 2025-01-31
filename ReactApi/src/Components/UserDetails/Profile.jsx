@@ -48,9 +48,10 @@ function Profile() {
 
   return (
     <div className='flex justify-center'>
-      <button onClick={handleModal} className='text-base font-bold'><AiOutlineUser /></button>
+      <button onClick={handleModal} className=''><AiOutlineUser className='text-white'/></button>
 
-      <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} className='modal bg-transparent flex justify-end mt-12'>
+      <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} className='modal bg-transparent flex justify-end mt-12'
+      overlayClassName="fixed inset-0 bg-black bg-opacity-10">
 
         <div className='rounded-md overflow-hidden shadow-2xl p-2 bg-blue-100 h-72 w-72 hover:border-2 border-blue-700'>
 
@@ -67,13 +68,13 @@ function Profile() {
               <p className='text-xs text-pink-500'>{user.email}</p>
             </div>
           </div>
-          <div className='pl-4 font-light text-sm text-red-400 pt-5 m-1'>
+          <div className='pl-4 font-light text-sm text-red-400 pt-3 m-1'>
             <a className='hover:font-normal'>Manage my details</a>
-            <a className='hover:font-normal' href="/DashBoard">DashBoard</a>
             <p className='hover:font-normal'> Privacy Policy</p>
             <p className='hover:font-normal'> Terms of Service</p>
+            <a className='hover:font-normal' href="/DashBoard">DashBoard</a>
           </div>
-          <div className='flex justify-center hover:scale-x-105 pt-12' onClick={() => setModalIsOpen(false)}>
+          <div className='flex justify-center hover:scale-x-105 pt-8' onClick={() => setModalIsOpen(false)}>
             <Logout />
           </div>
         </div>
