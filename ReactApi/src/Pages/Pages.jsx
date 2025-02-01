@@ -22,19 +22,19 @@ function Pages() {
                     <Router>
                         <div>
                             <Navbar/>
-
-                            {/* Define Routes */}
+                                                   
                             <Routes>
+                            
                                 <Route path="/login" element={<Login />} />
                                 <Route path="/" element={<Home />} />
-                                <Route path="/DashBoard" element={<DashBoard/>} />
+                                
                                 <Route path="/add-employee" element={<AddEmp />} />
                                 <Route path="/add-holiday" element={<AddHoliday />} />
                                 <Route path="/employees" element={<EmployeeView />} />
                                 <Route path="/holidays" element={<HolidayView />} />
                                 <Route path="/employees/edit/:id" element={<EmployeeEdit />} />
                                 <Route path="/holidays/edit/:id" element={<HolidayEdit />} />
-
+                                <Route path="/DashBoard" element={<DashBoard/>} />
                             </Routes>
                         </div>
                     </Router>

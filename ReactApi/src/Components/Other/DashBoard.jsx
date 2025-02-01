@@ -8,9 +8,9 @@ function DashBoard() {
   return (
     <div className='w-40 h-screen bg-blue-800 flex justify-start'>
       <div className='pl-4 w-40 pt-2'>
-        <DashBoardBtn text='DashBoard' Icon={RiDashboardHorizontalLine}/>
-        <DashBoardBtn text='Employees' Icon={BsPersonLinesFill}/>
-        <DashBoardBtn text='Holidays' Icon={IoCalendarNumberSharp}/>
+        <DashBoardBtn text='DashBoard' Icon={RiDashboardHorizontalLine} path="/DashBoard"/>
+        <DashBoardBtn text='Employees' Icon={BsPersonLinesFill} path="/employees"/>
+        <DashBoardBtn text='Holidays' Icon={IoCalendarNumberSharp} path="/holidays"/>
         <DashBoardBtn text='Payments' Icon={RiSecurePaymentFill}/>
       </div>
     </div>

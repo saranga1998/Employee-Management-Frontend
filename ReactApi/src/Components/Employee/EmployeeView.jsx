@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchAll, deleteById } from '../../Redux/Employee/EmpActions'
 import { useNavigate } from 'react-router-dom'
-
+import { MdDelete,MdEdit } from "react-icons/md";
 
 function EmployeeView() {
 
@@ -29,10 +29,10 @@ function EmployeeView() {
             ) :
                 (
 
-                    <div>
+                    <div className='w-96'>
                         <div>
                             <button onClick={() => navigate('/add-employee')} 
-                            className="w-full mt-6 rounded-md bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">Add Employee</button>
+                            className="w-30 mt-6 rounded-md bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">Add Employee</button>
                         </div>
                         <table className='table-auto m-2'>
                             <thead className=' bg-blue-600 text-white'>
@@ -51,8 +51,8 @@ function EmployeeView() {
                                         <td className='border px-4 py-2'>{emp.employeeName}</td>
                                         <td className='border px-4 py-2'>{emp.employeeEmail}</td>
                                         <td className='border px-4 py-2'>{emp.employeeJob}</td>
-                                        <td><button onClick={() => handleDelete(emp.employeeId)}>Delete</button></td>
-                                        <td><button onClick={() => navigate(`/employees/edit/${emp.employeeId}`)}>Edit</button></td>
+                                        <td className=' pt-3 flex justify-center hover:bg-white '><button onClick={() => handleDelete(emp.employeeId)}><MdDelete /></button></td>
+                                        <td><button onClick={() => navigate(`/employees/edit/${emp.employeeId}`)}><MdEdit/></button></td>
                                     </tr>
                                 ))}
                             </tbody>
