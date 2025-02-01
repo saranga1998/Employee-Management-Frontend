@@ -45,6 +45,14 @@ function Profile() {
   const handleModal = () => {
     setModalIsOpen(true)
   }
+  const handleLogout = () =>{
+    setModalIsOpen(false)
+    setUser({
+      id: '',
+      username:'',
+      email: '',
+    });
+  }
 
   return (
     <div className='flex justify-center'>
@@ -74,7 +82,7 @@ function Profile() {
             <p className='hover:font-normal'> Terms of Service</p>
             <a className='hover:font-normal' href="/DashBoard">DashBoard</a>
           </div>
-          <div className='flex justify-center hover:scale-x-105 pt-8' onClick={() => setModalIsOpen(false)}>
+          <div className='flex justify-center hover:scale-x-105 pt-8' onClick={handleLogout}>
             <Logout />
           </div>
         </div>
