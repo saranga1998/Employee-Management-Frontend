@@ -13,6 +13,7 @@ import HolidayView from '../Components/Holiday/HolidayView';
 import HolidayEdit from '../Components/Holiday/HolidayEdit';
 import Login from './Authentication/Login';
 import Navbar from '../Components/Other/Navbar';
+import DashBoardLayout from './DashBoardLayout';
 
 function Pages() {
     return (
@@ -21,20 +22,22 @@ function Pages() {
                 <ErrorBoundary>
                     <Router>
                         <div>
-                            <Navbar/>
-                                                   
+                            <Navbar />
+
                             <Routes>
-                            
+
                                 <Route path="/login" element={<Login />} />
                                 <Route path="/" element={<Home />} />
-                                
-                                <Route path="/add-employee" element={<AddEmp />} />
-                                <Route path="/add-holiday" element={<AddHoliday />} />
-                                <Route path="/employees" element={<EmployeeView />} />
-                                <Route path="/holidays" element={<HolidayView />} />
-                                <Route path="/employees/edit/:id" element={<EmployeeEdit />} />
-                                <Route path="/holidays/edit/:id" element={<HolidayEdit />} />
-                                <Route path="/DashBoard" element={<DashBoard/>} />
+
+
+                                <Route path="/DashBoard" element={<DashBoardLayout />}>
+                                    <Route path="add-employee" element={<AddEmp />} />
+                                    <Route path="add-holiday" element={<AddHoliday />} />
+                                    <Route path="employees" element={<EmployeeView />} />
+                                    <Route path="holidays" element={<HolidayView />} />
+                                    <Route path="employees/edit/:id" element={<EmployeeEdit />} />
+                                    <Route path="holidays/edit/:id" element={<HolidayEdit />} />
+                                </Route>
                             </Routes>
                         </div>
                     </Router>

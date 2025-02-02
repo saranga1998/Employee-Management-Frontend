@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { fetchAll,deleteById } from '../../Redux/Holiday/HolidayActions'
-
+import { MdDelete,MdEdit } from "react-icons/md";
 
 function HolidayView() {
 
@@ -25,10 +25,10 @@ function HolidayView() {
     ) : DaysData.holiday.length === 0 ? (
         <h2>No Data Found</h2>
     ) : (
-        <div>
-            <div>
-                <button onClick={() => navigate('/add-holiday')} 
-                className="w-full mt-6 rounded-md bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">Add Holiday</button>
+        <div className='m-2'>
+            <div className='flex justify-end'>
+                <button onClick={() => navigate('add-holiday')} 
+                className="w-30 mt-6 rounded-md bg-slate-800 py-2 px-4  text-center text-sm text-white ">Add Holiday</button>
             </div>
             <table className='table-auto m-2'>
                 <thead className=' bg-blue-600 text-white'>
@@ -44,8 +44,8 @@ function HolidayView() {
                             <td className='border px-4 py-2'>{day.holiday1}</td>
                             <td className='border px-4 py-2'>{day.title}</td>
 
-                            <td><button onClick={() => handleDelete(day.dayId)}>Delete</button></td>
-                            <td><button onClick={() => navigate(`/holidays/edit/${day.dayId}`)}>Edit</button></td>
+                            <td className='text-center hover:bg-white '><button onClick={() => handleDelete(day.dayId)}><MdDelete /></button></td>
+                            <td className='text-center hover:bg-white '><button onClick={() => navigate(`holidays/edit/${day.dayId}`)}><MdEdit/></button></td>
                         </tr>
                     ))}
                 </tbody>

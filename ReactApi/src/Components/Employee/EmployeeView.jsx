@@ -29,12 +29,12 @@ function EmployeeView() {
             ) :
                 (
 
-                    <div className='w-96'>
-                        <div>
-                            <button onClick={() => navigate('/add-employee')} 
-                            className="w-30 mt-6 rounded-md bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">Add Employee</button>
+                    <div className='m-2'>
+                        <div className='flex justify-end'>
+                            <button onClick={() => navigate('add-employee')} 
+                            className="w-30 mt-6 rounded-md bg-slate-800 py-2 px-4  text-center text-sm text-white ">Add Employee</button>
                         </div>
-                        <table className='table-auto m-2'>
+                        <table className='table-auto m-2 '>
                             <thead className=' bg-blue-600 text-white'>
                                 <tr className='border-2 border-blue-500 rounded-t'>
                                     <th scope="col" className='px-4 py-2'>Employee Id</th>
@@ -51,8 +51,8 @@ function EmployeeView() {
                                         <td className='border px-4 py-2'>{emp.employeeName}</td>
                                         <td className='border px-4 py-2'>{emp.employeeEmail}</td>
                                         <td className='border px-4 py-2'>{emp.employeeJob}</td>
-                                        <td className=' pt-3 flex justify-center hover:bg-white '><button onClick={() => handleDelete(emp.employeeId)}><MdDelete /></button></td>
-                                        <td><button onClick={() => navigate(`/employees/edit/${emp.employeeId}`)}><MdEdit/></button></td>
+                                        <td className=' text-center hover:bg-white '><button onClick={() => handleDelete(emp.employeeId)}><MdDelete /></button></td>
+                                        <td className=' text-center hover:bg-white '><button onClick={() => navigate(`employees/edit/${emp.employeeId}`)}><MdEdit/></button></td>
                                     </tr>
                                 ))}
                             </tbody>
