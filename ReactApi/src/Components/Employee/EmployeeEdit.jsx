@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { FetchById, UpdateById } from '../../Redux/Employee/EmpActions';
 import { useNavigate, useParams } from "react-router-dom";
 import { TextInput, EmailInput } from '../Inputs/BasicInputs';
-
+import { DataLoading } from '../Other/Spineers';
 const EmployeeEdit = () => {
 
     const { id } = useParams();
@@ -50,14 +50,15 @@ const EmployeeEdit = () => {
         navigate('/employees');
     };
 
-    if (loading) return <h2>Loading...</h2>;
+    if (loading) return <DataLoading/>;
     if (error) return <h2>{error}</h2>;
 
     return (
-        <div>
-            <h2 className='block text-xl font-medium text-slate-800'>Update Employee</h2>
-            <div className='border-2 border-black block p-5 rounded-md '>
-                <form onSubmit={handleSubmit} className='m-4 content-around'>
+        <div className='m-2 flex justify-center'>
+            
+            <div className='border-2 block p-5 rounded-md w-1/2 shadow-md'>
+            <p className="text-md font-bold text-center text-gray-600">Update Employee</p>
+                <form onSubmit={handleSubmit} className='m-4 flex-row justify-center'>
 
                     <TextInput
                         label='Employee Id' name='employeeId' type='text' value={updateEmployee.employeeId} onChange={handleChange} disabled />

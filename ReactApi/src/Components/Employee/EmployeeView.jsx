@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { fetchAll, deleteById } from '../../Redux/Employee/EmpActions'
 import { useNavigate } from 'react-router-dom'
 import { MdDelete,MdEdit } from "react-icons/md";
+import { DataLoading } from '../Other/Spineers';
 
 function EmployeeView() {
 
@@ -22,7 +23,7 @@ function EmployeeView() {
     if (!EmpData) {
         return <h2>Loading...</h2>;
     }
-    return EmpData.loading ? (<h2>loading...</h2>) :
+    return EmpData.loading ? (<DataLoading/>) :
         EmpData.error ? (<h2>{EmpData.error}</h2>) :
             EmpData.employees.length === 0 ? (
                 <h2>No Employees Found</h2>
@@ -30,6 +31,7 @@ function EmployeeView() {
                 (
 
                     <div className='m-2'>
+                    
                         <div className='flex justify-end'>
                             <button onClick={() => navigate('add-employee')} 
                             className="w-30 mt-6 rounded-md bg-slate-800 py-2 px-4  text-center text-sm text-white ">Add Employee</button>
@@ -52,7 +54,7 @@ function EmployeeView() {
                                         <td className='border px-4 py-2'>{emp.employeeEmail}</td>
                                         <td className='border px-4 py-2'>{emp.employeeJob}</td>
                                         <td className=' text-center hover:bg-white '><button onClick={() => handleDelete(emp.employeeId)}><MdDelete /></button></td>
-                                        <td className=' text-center hover:bg-white '><button onClick={() => navigate(`employees/edit/${emp.employeeId}`)}><MdEdit/></button></td>
+                                        <td className=' text-center hover:bg-white '><button onClick={() => navigate(`edit/${emp.employeeId}`)}><MdEdit/></button></td>
                                     </tr>
                                 ))}
                             </tbody>

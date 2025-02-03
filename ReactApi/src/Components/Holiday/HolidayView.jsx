@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { fetchAll,deleteById } from '../../Redux/Holiday/HolidayActions'
 import { MdDelete,MdEdit } from "react-icons/md";
+import { DataLoading } from '../Other/Spineers';
 
 function HolidayView() {
 
@@ -19,7 +20,7 @@ function HolidayView() {
     }
 
     return DaysData.loading ? (
-        <h2>Loading...</h2>
+        <DataLoading/>
     ) : DaysData.error ? (
         <h2>{DaysData.error}</h2>
     ) : DaysData.holiday.length === 0 ? (
@@ -45,7 +46,7 @@ function HolidayView() {
                             <td className='border px-4 py-2'>{day.title}</td>
 
                             <td className='text-center hover:bg-white '><button onClick={() => handleDelete(day.dayId)}><MdDelete /></button></td>
-                            <td className='text-center hover:bg-white '><button onClick={() => navigate(`holidays/edit/${day.dayId}`)}><MdEdit/></button></td>
+                            <td className='text-center hover:bg-white '><button onClick={() => navigate(`edit/${day.dayId}`)}><MdEdit/></button></td>
                         </tr>
                     ))}
                 </tbody>
