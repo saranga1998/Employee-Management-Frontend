@@ -48,22 +48,23 @@ function HolidayEdit() {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(UpdateById(id, updateDay));
-        navigate('/holidays');
+        navigate('/DashBoard/holidays');
     };
 
     if (loading) return <h2>Loading...</h2>;
     if (error) return <h2>{error}</h2>;
     return (
-        <div>
-            <h2 className='block text-xl font-medium text-slate-800'>Update Holiday</h2>
-            <div className='border-2 border-black block p-5 rounded-md '>
-                <form onSubmit={handleSubmit} className='m-4 content-around'>
+        <div className='m-2 flex justify-center'>
+
+            <div className='border-2 block p-5 rounded-md w-1/2 shadow-md'>
+                <p className="text-md font-bold text-center text-gray-600">Update Holiday</p>
+                <form onSubmit={handleSubmit} className='m-4 flex-row justify-center'>
 
                     <DateInput label="Select Date" name="holiday1" type="Date" value={updateDay.Holiday1} onChange={handleChange} />
                     <TextInput
                         label="Holiday Title" name="title" type="text" value={updateDay.Title} onChange={handleChange} />
 
-                    
+
                     <div className='p-2 flex justify-center'>
                         <button type='submit'
                             className='bg-blue-500 hover:bg-blue-700

@@ -22,14 +22,14 @@ function AddHoliday() {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(create(holiday));
-        navigate('/holidays');
+        navigate('/DashBoard/holidays');
     };
     return (
-        <div>
+        <div className='m-2 flex justify-center'>
 
-            <h2 className='block text-xl font-medium text-slate-800'>Add Holiday</h2>
-            <div className='border-2 border-black block p-5 rounded-md '>
-                <form onSubmit={handleSubmit} className='m-4 content-around'>
+            <div className='border-2 block p-5 rounded-md w-1/2 shadow-md'>
+                <p className="text-md font-bold text-center text-gray-600">Add Holiday</p>
+                <form onSubmit={handleSubmit} className='m-4 flex-row justify-center'>
 
                     <DateInput label="Select Date" name="holiday1" type="Date" value={holiday.holiday1} onChange={handleChange} />
 

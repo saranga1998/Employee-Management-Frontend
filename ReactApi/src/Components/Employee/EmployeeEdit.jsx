@@ -47,7 +47,7 @@ const EmployeeEdit = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(UpdateById(id, updateEmployee));
-        navigate('/employees');
+        navigate('/DashBoard/employees');
     };
 
     if (loading) return <DataLoading/>;
