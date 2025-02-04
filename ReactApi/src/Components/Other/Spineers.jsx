@@ -4,7 +4,7 @@ import { PropagateLoader,PuffLoader } from 'react-spinners'
 export const DataLoading = () => {
     return (
         <div className=' flex justify-center'>
-            <PropagateLoader size={20} color='gray' loading />
+            <PropagateLoader size={20} color='gray' loading className='p-10'/>
         </div>
     )
 }
