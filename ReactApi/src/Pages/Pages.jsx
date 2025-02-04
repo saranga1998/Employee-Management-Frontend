@@ -7,7 +7,7 @@ import Home from '../Pages/Home'
 import AddEmp from '../Components/Employee/AddEmp';
 import EmployeeView from '../Components/Employee/EmployeeView';
 import EmployeeEdit from '../Components/Employee/EmployeeEdit';
-import DashBoard from '../Components/Other/DashBoard';
+
 import AddHoliday from '../Components/Holiday/AddHoliday.Jsx';
 import HolidayView from '../Components/Holiday/HolidayView';
 import HolidayEdit from '../Components/Holiday/HolidayEdit';
