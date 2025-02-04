@@ -25,16 +25,17 @@ function AddEmp() {
     console.log('Submitting Employee:', employee);
     e.preventDefault();
     dispatch(create(employee));
-    navigate('/employees');
+    navigate('/DashBoard/employees');
   };
 
 
 
   return (
-    <div>
-      <h2 className='block text-xl font-medium text-slate-800'>Add Employee</h2>
-      <div className='border-2 border-black block p-5 rounded-md '>
-        <form onSubmit={handleSubmit} className='m-4 content-around'>
+    <div className='m-2 flex justify-center'>
+
+      <div className='border-2 block p-5 rounded-md w-1/2 shadow-md'>
+        <p className="text-md font-bold text-center text-gray-600">Add Employee</p>
+        <form onSubmit={handleSubmit} className='m-4 flex-row justify-center'>
           <TextInput
             label="Employee Id" name="EmployeeId" type="text" value={employee.EmployeeId} onChange={handleChange} />
           <TextInput

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Login from '../../Pages/Authentication/Login'
 import Logout from '../UserDetails/Logout'
 import Profile from '../UserDetails/Profile'
+import { IoHome ,IoLogIn} from "react-icons/io5";
 
 import { useSelector } from 'react-redux'
 function Navbar() {
@@ -20,10 +21,11 @@ function Navbar() {
 
                 <ul className="flex justify-evenly pl-2">
                 
-                    <li className="flex-1 "><a className="text-center block hover:bg-pink-200 hover:border-2 border-blue-500 rounded py-2 px-4 text-black font-medium" href="/">Home</a></li>
-                    <li className="flex-1 "><div className="text-center block hover:bg-white hover:border-2 border-blue-500 rounded py-2 px-4 text-black font-medium" >                        
-                    {!isLoggedIn ?<Login/>:<Logout/>}</div></li>
-                    <li className="flex-1"><div className=" hover:bg-blue-800 border-2 hover:drop-shadow-[0_4px_10px_rgba(255,0,0,0.9)] transition border-blue-500 rounded-3xl  py-2 px-4 size-10" ><Profile/></div></li>
+                    <li className="flex-1 "><a className="inline-flex items-center justify-center text-center hover:border-2  hover:shadow-2xl rounded-md border-blue-500  py-2 px-4 text-white font-semibold" href="/">
+                    <span className='mr-1'><IoHome/></span>Home</a></li>
+                    <li className="flex-1 "><div className="inline-flex items-center justify-center text-center hover:border-2  hover:shadow-2xl rounded-md border-blue-500  py-2 px-4 text-white font-semibold" >                        
+                    <span className='mr-1'><IoLogIn/></span><Login/></div></li>
+                    <li className="flex-1"><div className=" hover:bg-blue-800 border-2 hover:drop-shadow-[0_4px_10px_rgba(0,0,0,0.2)] transition border-blue-500 rounded-3xl  py-2 px-4 size-10" ><Profile/></div></li>
                 </ul>
 
             </nav>
