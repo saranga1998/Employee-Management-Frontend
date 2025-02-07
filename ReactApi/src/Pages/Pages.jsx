@@ -14,6 +14,7 @@ import HolidayEdit from '../Components/Holiday/HolidayEdit';
 import Login from './Authentication/Login';
 import Navbar from '../Components/Other/Navbar';
 import DashBoardLayout from './DashBoardLayout';
+import Payment from '../Components/Payments/Payment';
 
 function Pages() {
     return (
@@ -35,6 +36,7 @@ function Pages() {
                                     <Route path="add-holiday" element={<AddHoliday />} />
                                     <Route path="employees" element={<EmployeeView />} />
                                     <Route path="holidays" element={<HolidayView />} />
+                                    <Route path="payments" element={<Payment/>}/>
                                     <Route path="employees/edit/:id" element={<EmployeeEdit />} />
                                     <Route path="holidays/edit/:id" element={<HolidayEdit />} />
                                 </Route>
