@@ -11,7 +11,7 @@ function DashBoard() {
         <DashBoardBtn text='DashBoard' Icon={RiDashboardHorizontalLine} path="/DashBoard"/>
         <DashBoardBtn text='Employees' Icon={BsPersonLinesFill} path="employees"/>
         <DashBoardBtn text='Holidays' Icon={IoCalendarNumberSharp} path="holidays"/>
-        <DashBoardBtn text='Payments' Icon={RiSecurePaymentFill}/>
+        <DashBoardBtn text='Payments' Icon={RiSecurePaymentFill} path="payments"/>
       </div>
     </div>
   )
